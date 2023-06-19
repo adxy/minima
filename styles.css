@@ -11,19 +11,19 @@ html {
   --text: #F5FFFA;
   --border-color: #2a2929;
   --highlight: #318CE7;
-  --font-size: 32px;
-  --font-size-small: 20px;
-  --font-size-xs: 14px;
-  --font-size-xxs: 10px;
-  --padding: 16px;
-  --padding-small: 8px;
-  --padding-xs: 4px;
-  --padding-xxs: 2px;
-  --margin: 16px;
-  --margin-large: 32px;
-  --margin-small: 8px;
-  --margin-xs: 6px;
-  --border-radius: 2%;
+  --font-size: 40px;
+  --font-size-small: 25px;
+  --font-size-xs: 17.5px;
+  --font-size-xxs: 11px;
+  --padding: 20px;
+  --padding-small: 10px;
+  --padding-xs: 5px;
+  --padding-xxs: 2.5px;
+  --margin: 20px;
+  --margin-large: 40px;
+  --margin-small: 10px;
+  --margin-xs: 7.5px;
+  --border-radius: 2.5%;
   background: var(--bg);
   font-family: var(--font-sans);
   font-size: var(--font-size);
@@ -40,12 +40,12 @@ html {
 }
 
 .parent-container {
-  max-width: 600px;
+  max-width: 750px;
   margin: 0 auto; 
 }
 
 .avatar {
-  height: 2.1rem;
+  height: 2.6rem;
   margin: var(--margin-small);  
 }
 
@@ -56,7 +56,7 @@ html {
 }
 
 .name {
-  height: 1.2rem;
+  height: 1.4rem;
   margin-left: var(--margin);
 }
 
@@ -78,8 +78,8 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300px;
-  width: 220px;
+  height: 375px;
+  width: 275px;
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   margin: var(--margin-small);
@@ -118,7 +118,7 @@ html {
 .project-button img {
   margin: 0 var(--margin-small) ;
   margin-left: 0;
-  height: 15px; 
+  height: 20px; 
 }
 
 .section-social {
@@ -129,8 +129,8 @@ html {
 }
 
 .section-social img {  
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .social-icon-bg {
@@ -138,8 +138,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;  
+  width: 38px;
+  height: 38px;  
   border-radius: 50%;
   background-color: transparent;
   transition: all 0.2s linear;
@@ -169,7 +169,7 @@ footer {
   position: absolute;
   border-top: 1px solid gray;
   width: 100%;
-  height: 35px;
+  height: 45px;
   background-color: var(--border-color);
   overflow-y: visible;
   
@@ -190,7 +190,7 @@ footer p {
   content: attr(title);
   position: absolute;
   top: -10%;
-  right: -20px;
+  right: -40px;
   font-size: var(--font-size-xs);
 }
 
