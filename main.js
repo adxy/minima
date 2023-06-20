@@ -37,7 +37,7 @@ gql(query).then((resp)=>{
       const title = document.createElement("p");
       
       title.innerText = post.title;
-      title.classList.add('title')
+      title.classList.add('description')
       card.appendChild(title);
 
       const date = document.createElement('p');
@@ -61,7 +61,7 @@ storage.openSource.forEach((contribution) => {
 
   const title = document.createElement('p');
   title.innerText = contribution.title;
-  title.classList.add('title');
+  title.classList.add('description');
 
   openSourceCard.appendChild(title);
   const langTagDiv = document.createElement('div');
@@ -82,9 +82,9 @@ document.querySelector('.email').innerText = storage.email;
 document.querySelector('.intro').innerHTML = storage.introText;
 
 storage.socials.forEach((social) => {
-  document.querySelector(`.${social.platform}`).addEventListener('pointerdown', function() {
-    window.open(`${social.link}`,'_blank');
-  }, false);
+  const elm = document.querySelector(`.${social.platform}`);
+  elm.href = social.link;
+  elm.target = '_blank';  
 })
 
 storage.projects.forEach((project) => {
@@ -107,7 +107,7 @@ storage.projects.forEach((project) => {
   const buttonDiv = document.createElement('div');
   buttonDiv.classList.add('project-buttons-box');
 
-  const codeButton = document.createElement('div');
+  const codeButton = document.createElement('a');
   codeButton.classList.add('project-button');
 
   const liveButton = codeButton.cloneNode(true);
@@ -135,14 +135,12 @@ storage.projects.forEach((project) => {
   const projectSection = document.querySelector('.section-projects');
   projectSection.appendChild(card);
 
-  codeButton.addEventListener('pointerdown', function() {
-    window.open(`${project.code}`,'_blank');
-  }, false);
+  codeButton.href = project.code;
+  codeButton.target = '_blank';
 
-  liveButton.addEventListener('pointerdown', function() {
-    window.open(`${project.link}`,'_blank');
-  }, false);
-
+  liveButton.href = project.link;
+  liveButton.target = '_blank';
+ 
 })
 
 
