@@ -31,7 +31,7 @@ const query = `{
 
 gql(query).then((resp)=>{              
     const apiResponse = resp.data.user.publication.posts;
-    apiResponse.forEach(post => {
+    apiResponse.forEach(post => {     
       const cardParent = document.createElement('div');
       const card = document.createElement("a");
       cardParent.classList.add("writings-card");
@@ -52,6 +52,8 @@ gql(query).then((resp)=>{
 
       cardParent.appendChild(card);
       const elm =  document.getElementById('writings');
+      const loaders = [...document.querySelectorAll('.loader')];
+      loaders.forEach((loader) => elm.removeChild(loader));
       elm.appendChild(cardParent);
     });
 });
