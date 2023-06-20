@@ -12,6 +12,7 @@ html {
   --text: #F5FFFA;
   --border-color: #2a2929;
   --highlight: #318CE7;
+  --copied:#00A693;
   --font-size: 30px;
   --font-size-small: 25px;
   --font-size-xs: 17.5px;
@@ -186,6 +187,14 @@ a {
 
 .email:hover {
   color: var(--text);
+}
+
+.copied {
+  color: var(--copied);
+}
+
+.copied:hover {
+  color: var(--copied);
 }
 
 footer {

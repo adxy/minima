@@ -83,8 +83,19 @@ storage.openSource.forEach((contribution) => {
   document.getElementById('open-source').appendChild(cardParent);
 });
 
+const emailDiv = document.querySelector('.email');
+emailDiv.innerText = storage.email; 
 
-document.querySelector('.email').innerText = storage.email; 
+emailDiv.addEventListener('pointerdown', () => {
+  navigator.clipboard.writeText(storage.email);
+  emailDiv.innerText = 'copied to clipboard. ✓';
+  emailDiv.classList.add('copied');
+  setTimeout(() => {
+    emailDiv.innerText = storage.email;
+    emailDiv.classList.remove('copied');
+  }, 3000);
+});
+
 document.querySelector('.intro').innerHTML = storage.introText;
 
 storage.socials.forEach((social) => {
