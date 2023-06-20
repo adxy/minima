@@ -121,6 +121,7 @@ storage.projects.forEach((project) => {
   const liveText = document.createElement('p');
 
   const arrowButton = document.createElement('img');
+  arrowButton.alt = 'arrow button right';
   arrowButton.src = arrowImg;
 
   const arrowButtonClone = arrowButton.cloneNode(true)

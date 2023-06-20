@@ -89,6 +89,7 @@ a {
   overflow: scroll;  
   -ms-overflow-style: none;
   scrollbar-width: none;  
+  scroll-snap-type: x mandatory;
 }
 
 .section-projects::-webkit-scrollbar{
@@ -101,11 +102,13 @@ a {
   justify-content: space-between;
   height: 375px;
   width: 275px;
+  min-width: 220px;
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   margin: var(--margin-small);
   padding: var(--padding);
   transition: all 0.3s linear;
+  scroll-snap-align: start;
 }
 
 .project-card .title {
