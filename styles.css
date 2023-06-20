@@ -57,8 +57,8 @@ a {
   margin: var(--margin-small);  
 }
 
-.name {
-  height: 1.4rem;
+.logo {
+  height: 1.2rem;
   margin-left: var(--margin);
 }
 
@@ -303,7 +303,7 @@ hr {
   .avatar{
     height: 2rem;
   }
-  .name {
+  .logo {
     height: 1rem;
   }
 }
