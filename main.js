@@ -32,10 +32,14 @@ const query = `{
 gql(query).then((resp)=>{              
     const apiResponse = resp.data.user.publication.posts;
     apiResponse.forEach(post => {
-      const card = document.createElement("div");
-      card.classList.add("writings-card");
+      const cardParent = document.createElement('div');
+      const card = document.createElement("a");
+      cardParent.classList.add("writings-card");
       const title = document.createElement("p");
       
+      card.href = `https://adxy.hashnode.dev/${post.slug}`;
+      card.target = '_blank';
+
       title.innerText = post.title;
       title.classList.add('description')
       card.appendChild(title);
@@ -45,19 +49,20 @@ gql(query).then((resp)=>{
       date.innerText = dateAdded;
       date.classList.add('date');
       card.appendChild(date);
-      
+
+      cardParent.appendChild(card);
       const elm =  document.getElementById('writings');
-      elm.appendChild(card);
+      elm.appendChild(cardParent);
     });
 });
 
 storage.openSource.forEach((contribution) => {
-  const openSourceCard = document.createElement('div');
-  openSourceCard.classList.add('os-card');
+  const cardParent = document.createElement('div');
+  const openSourceCard = document.createElement('a');
+  cardParent.classList.add('os-card');
 
-  openSourceCard.addEventListener('pointerdown', function() {
-    window.open(`${contribution.prLink}`,'_blank');
-  }, false);
+  openSourceCard.href = contribution.prLink;
+  openSourceCard.target = '_blank';
 
   const title = document.createElement('p');
   title.innerText = contribution.title;
@@ -74,7 +79,8 @@ storage.openSource.forEach((contribution) => {
     langTagDiv.appendChild(langTag);
   });  
   openSourceCard.appendChild(langTagDiv);
-  document.getElementById('open-source').appendChild(openSourceCard);
+  cardParent.appendChild(openSourceCard);
+  document.getElementById('open-source').appendChild(cardParent);
 });
 
 
