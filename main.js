@@ -93,7 +93,7 @@ emailDiv.addEventListener('pointerdown', () => {
   setTimeout(() => {
     emailDiv.innerText = storage.email;
     emailDiv.classList.remove('copied');
-  }, 3000);
+  }, 2000);
 });
 
 document.querySelector('.intro').innerHTML = storage.introText;
