@@ -108,7 +108,7 @@ a {
   margin: var(--margin-small);
   padding: var(--padding);
   transition: all 0.3s linear;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 .project-card .title {
