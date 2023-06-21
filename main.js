@@ -52,7 +52,7 @@ gql(query).then((resp)=>{
 
       cardParent.appendChild(card);
       const elm =  document.getElementById('writings');
-      const loaders = [...document.querySelectorAll('.loader')];
+      const loaders = [...document.querySelectorAll('.section-writings .loader')];
       loaders.forEach((loader) => elm.removeChild(loader));
       elm.appendChild(cardParent);
     });
@@ -82,7 +82,10 @@ storage.openSource.forEach((contribution) => {
   });  
   openSourceCard.appendChild(langTagDiv);
   cardParent.appendChild(openSourceCard);
-  document.getElementById('open-source').appendChild(cardParent);
+  const osSection = document.getElementById('open-source');
+  const loaders = [...document.querySelectorAll('.section-os .loader')];
+  loaders.forEach((loader) => osSection.removeChild(loader));
+  osSection.appendChild(cardParent);
 });
 
 const emailDiv = document.querySelector('.email');
@@ -153,6 +156,8 @@ storage.projects.forEach((project) => {
   card.appendChild(buttonDiv);
 
   const projectSection = document.querySelector('.section-projects');
+  const loaders = [...document.querySelectorAll('.section-projects .loader')];
+  loaders.forEach((loader) => projectSection.removeChild(loader));
   projectSection.appendChild(card);
 
   codeButton.href = project.code;

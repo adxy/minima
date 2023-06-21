@@ -4,7 +4,6 @@
   padding: 0;
 }
 
-/* lekton-regular - latin */
 @font-face {
   font-display: swap; 
   font-family: 'Lekton';
@@ -12,7 +11,7 @@
   font-weight: 400;
   src: url('/public/fonts/lekton-v17-latin-regular.woff2') format('woff2'); 
 }
-/* lekton-700 - latin */
+
 @font-face {
   font-display: swap; 
   font-family: 'Lekton';
@@ -21,7 +20,6 @@
   src: url('/public/fonts/lekton-v17-latin-700.woff2') format('woff2'); 
 }
 
-/* inter-regular - latin */
 @font-face {
   font-display: swap;
   font-family: 'Inter';
@@ -29,6 +27,7 @@
   font-weight: 400;
   src: url('/public/fonts/inter-v12-latin-regular.woff2') format('woff2'); 
 }
+
 
 html {
   --font-sans: 'Lekton', sans-serif;
