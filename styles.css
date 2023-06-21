@@ -215,21 +215,6 @@ footer p {
   color: var(--subtle);
 }
 
-#headphone {
-  position: absolute;
-  bottom: 0px;
-  left: 5px;
-  cursor: pointer;
-}
-
-#headphone[title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  top: -10%;
-  right: -40px;
-  font-size: var(--font-size-xs);
-}
-
 hr {
   width: 10%;
   margin: var(--margin);

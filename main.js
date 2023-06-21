@@ -13,7 +13,7 @@ async function gql(query) {
 
     return response.json();
 
-}
+};
 
 const query = `{
     user(username: "adxy") {
@@ -26,7 +26,7 @@ const query = `{
         }
       }
     }
-  }`
+  }`;
 
 
 gql(query).then((resp)=>{              
@@ -104,7 +104,7 @@ storage.socials.forEach((social) => {
   const elm = document.querySelector(`.${social.platform}`);
   elm.href = social.link;
   elm.target = '_blank';  
-})
+});
 
 storage.projects.forEach((project) => {
 
@@ -161,22 +161,4 @@ storage.projects.forEach((project) => {
   liveButton.href = project.link;
   liveButton.target = '_blank';
  
-})
-
-
-const player = document.querySelector('lottie-player');
-
-const headphone = document.getElementById('headphone');
-const chillAudio = new Audio('https://cdn.pixabay.com/audio/2022/08/17/audio_eb3864cceb.mp3');
-chillAudio.loop = true;
-
-headphone.addEventListener('pointerdown', () => {  
-  if(chillAudio.paused){
-    player.play();
-    chillAudio.play()
-  }else{
-    player.stop();
-    chillAudio.pause();
-    chillAudio.currentTime = 0;
-  }
 });
