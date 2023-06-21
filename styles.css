@@ -75,6 +75,7 @@ a {
 .parent-container {
   min-height: 100vh;
   max-width: 750px;
+  min-width: 280px;
   margin-bottom: var(--margin);
 }
 

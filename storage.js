@@ -1,6 +1,5 @@
 export default {
   email: 'theadxy@gmail.com',
-  introText: 'Namaste! I am <s><b>Adarsh Bhadauria</b>, a.k.a</s> <b>adxy</b>. Nice to see you here!',
   openSource: [
     {
       title: 'Fixed a bug on dev.to where search bar used to disappear on mobile devices.',

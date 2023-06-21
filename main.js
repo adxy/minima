@@ -89,7 +89,6 @@ storage.openSource.forEach((contribution) => {
 });
 
 const emailDiv = document.querySelector('.email');
-emailDiv.innerText = storage.email; 
 
 emailDiv.addEventListener('pointerdown', () => {
   navigator.clipboard.writeText(storage.email);
@@ -100,8 +99,6 @@ emailDiv.addEventListener('pointerdown', () => {
     emailDiv.classList.remove('copied');
   }, 2000);
 });
-
-document.querySelector('.intro').innerHTML = storage.introText;
 
 storage.socials.forEach((social) => {
   const elm = document.querySelector(`.${social.platform}`);
