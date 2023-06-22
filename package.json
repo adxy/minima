@@ -1,14 +1,14 @@
 {
-  "name": "minima-v1",
+  "name": "minima",
   "version": "1.0.0",
-  "description": "",
+  "description": "Adarsh Bhadauria's personal portfolio website.",
   "source": "index.html",
   "scripts": {
     "dev": "parcel",
     "build": "parcel build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adarsh Bhadauria",
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.9.2"
