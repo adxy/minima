@@ -6,7 +6,6 @@ async function gql(query) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': '03c3a1e9-57d4-4dd8-9ad1-a89b16db2d6a'
         },
         body: JSON.stringify({ query }),
     });
