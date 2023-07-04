@@ -1,18 +1,21 @@
-import storage from './storage';
-import arrowImg from './public/images/arrow-right.svg';
+import storage from "./storage";
+import arrowImg from "./public/images/arrow-right.svg";
 
 async function gql(query) {
-    const response = await fetch('https://api.hashnode.com/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query }),
-    });
+  const response = await fetch("https://api.hashnode.com/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  });
 
-    return response.json();
+  if (!response || !response.ok) {
+    throw new Error("Something went wrong while fetching the articles!");
+  }
 
-};
+  return response.json();
+}
 
 const query = `{
     user(username: "adxy") {
@@ -27,119 +30,130 @@ const query = `{
     }
   }`;
 
-
-gql(query).then((resp)=>{              
+gql(query)
+  .then((resp) => {
     const apiResponse = resp.data.user.publication.posts;
-    apiResponse.forEach(post => {     
-      const cardParent = document.createElement('div');
+    apiResponse.forEach((post) => {
+      const cardParent = document.createElement("div");
       const card = document.createElement("a");
       cardParent.classList.add("writings-card");
       const title = document.createElement("p");
-      
+
       card.href = `https://adxy.hashnode.dev/${post.slug}`;
-      card.target = '_blank';
+      card.target = "_blank";
 
       title.innerText = post.title;
-      title.classList.add('description')
+      title.classList.add("description");
       card.appendChild(title);
 
-      const date = document.createElement('p');
+      const date = document.createElement("p");
       const dateAdded = new Date(post.dateAdded).toLocaleDateString();
       date.innerText = dateAdded;
-      date.classList.add('date');
+      date.classList.add("date");
       card.appendChild(date);
 
       cardParent.appendChild(card);
-      const elm =  document.getElementById('writings');
-      const loaders = [...document.querySelectorAll('.section-writings .loader')];
+      const elm = document.getElementById("writings");
+      const loaders = [
+        ...document.querySelectorAll(".section-writings .loader"),
+      ];
       loaders.forEach((loader) => elm.removeChild(loader));
       elm.appendChild(cardParent);
     });
-});
+  })
+  .catch((err) => {
+    const loaders = [
+      ...document.querySelectorAll(".section-writings .loader p"),
+    ];
+    loaders.forEach(
+      (loader) =>
+        (loader.innerText = "Something went wrong while fetching articles!")
+    );
+    throw err;
+  });
 
 storage.openSource.forEach((contribution) => {
-  const cardParent = document.createElement('div');
-  const openSourceCard = document.createElement('a');
-  cardParent.classList.add('os-card');
+  const cardParent = document.createElement("div");
+  const openSourceCard = document.createElement("a");
+  cardParent.classList.add("os-card");
 
   openSourceCard.href = contribution.prLink;
-  openSourceCard.target = '_blank';
+  openSourceCard.target = "_blank";
 
-  const title = document.createElement('p');
+  const title = document.createElement("p");
   title.innerText = contribution.title;
-  title.classList.add('description');
+  title.classList.add("description");
 
   openSourceCard.appendChild(title);
-  const langTagDiv = document.createElement('div');
-  langTagDiv.classList.add('languages')
+  const langTagDiv = document.createElement("div");
+  langTagDiv.classList.add("languages");
 
   contribution.languages.forEach((lang) => {
-    const langTag = document.createElement('div');
+    const langTag = document.createElement("div");
     langTag.innerText = lang;
-    langTag.classList.add('tags');
+    langTag.classList.add("tags");
     langTagDiv.appendChild(langTag);
-  });  
+  });
   openSourceCard.appendChild(langTagDiv);
   cardParent.appendChild(openSourceCard);
-  const osSection = document.getElementById('open-source');
-  const loaders = [...document.querySelectorAll('.section-os .loader')];
+  const osSection = document.getElementById("open-source");
+  const loaders = [...document.querySelectorAll(".section-os .loader")];
   loaders.forEach((loader) => osSection.removeChild(loader));
   osSection.appendChild(cardParent);
 });
 
-const emailDiv = document.querySelector('.email');
+const emailDiv = document.querySelector(".email");
 
-emailDiv.addEventListener('pointerdown', () => {
+emailDiv.addEventListener("pointerdown", () => {
   navigator.clipboard.writeText(storage.email);
-  emailDiv.innerText = 'copied to clipboard. ✓';
-  emailDiv.classList.add('copied');
+  emailDiv.innerText = "copied to clipboard. ✓";
+  emailDiv.classList.add("copied");
   setTimeout(() => {
     emailDiv.innerText = storage.email;
-    emailDiv.classList.remove('copied');
+    emailDiv.classList.remove("copied");
   }, 2000);
 });
 
 storage.socials.forEach((social) => {
   const elm = document.querySelector(`.${social.platform}`);
   elm.href = social.link;
-  elm.target = '_blank';  
+  elm.target = "_blank";
 });
 
 storage.projects.forEach((project) => {
+  const card = document.createElement("div");
+  card.classList.add("project-card");
 
-  const card = document.createElement('div');
-  card.classList.add('project-card');
+  const topDiv = document.createElement("div");
 
-  const topDiv = document.createElement('div');
-
-  const title = document.createElement('p');
+  const title = document.createElement("p");
   title.innerText = project.title;
-  title.classList.add('title')
+  title.classList.add("title");
   topDiv.appendChild(title);
 
-  const brief = document.createElement('p');
+  const brief = document.createElement("p");
   brief.innerText = project.brief;
-  brief.classList.add('brief');
+  brief.classList.add("brief");
   topDiv.appendChild(brief);
 
-  const buttonDiv = document.createElement('div');
-  buttonDiv.classList.add('project-buttons-box');
+  const buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("project-buttons-box");
 
-  const codeButton = document.createElement('a');
-  codeButton.classList.add('project-button');
+  const codeButton = document.createElement("a");
+  codeButton.classList.add("project-button");
 
   const liveButton = codeButton.cloneNode(true);
-  const codeText = document.createElement('p');
-  const liveText = document.createElement('p');
+  const codeText = document.createElement("p");
+  const liveText = document.createElement("p");
 
-  const arrowButton = document.createElement('img');
-  arrowButton.alt = 'arrow button right';
+  const arrowButton = document.createElement("img");
+  arrowButton.alt = "arrow button right";
   arrowButton.src = arrowImg;
 
-  const arrowButtonClone = arrowButton.cloneNode(true)
+  const arrowButtonClone = arrowButton.cloneNode(true);
 
-  codeText.innerText = 'code';
-  liveText.innerText = 'live';
+  codeText.innerText = "code";
+  liveText.innerText = "live";
 
   codeButton.appendChild(codeText);
   codeButton.appendChild(arrowButton);
@@ -151,15 +165,14 @@ storage.projects.forEach((project) => {
   card.appendChild(topDiv);
   card.appendChild(buttonDiv);
 
-  const projectSection = document.querySelector('.section-projects');
-  const loaders = [...document.querySelectorAll('.section-projects .loader')];
+  const projectSection = document.querySelector(".section-projects");
+  const loaders = [...document.querySelectorAll(".section-projects .loader")];
   loaders.forEach((loader) => projectSection.removeChild(loader));
   projectSection.appendChild(card);
 
   codeButton.href = project.code;
-  codeButton.target = '_blank';
+  codeButton.target = "_blank";
 
   liveButton.href = project.link;
-  liveButton.target = '_blank';
- 
+  liveButton.target = "_blank";
 });
