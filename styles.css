@@ -116,7 +116,7 @@ a {
   overflow: scroll;  
   -ms-overflow-style: none;
   scrollbar-width: none;  
-  scroll-snap-type: x mandatory;
+  cursor: grab;
 }
 
 .section-projects::-webkit-scrollbar{
