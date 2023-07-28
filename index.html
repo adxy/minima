@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html data-color-mode="dark" lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-78ZMBSPY3X"></script>
@@ -25,8 +25,13 @@
     <main class="main-container">
       <div class="parent-container">
         <section class="section-user">
-          <img class="avatar" src="/public/images/avatar.webp" alt="Adarsh Image"/>                
-          <img class="logo" src="/public/images/adxy-logo.svg" alt="adxy logo">                                                  
+          <div id="user-box">
+            <img class="avatar" src="/public/images/avatar.webp" alt="Adarsh Image"/>           
+          </div>
+          <div id="theme-button">
+            <img class="theme-button" id="moon-button" src="/public/images/moon.svg" alt="moon-button">
+            <img class="theme-button" id="sun-button" src="/public/images/sun.svg" alt="sun-button">
+          </div>
         </section>  
         <section class="section-social">
           <a class="social-icon-bg github">
@@ -48,18 +53,18 @@
             <p class="title">Loading...</p>
           </div>
         </section>
-        <h4 class="title">Writings</h4>   
-        <section class="section-writings" id="writings">
-          <div class="writings-card loader">
-            <p class="description">Loading...</p>
-          </div>    
-        </section>
         <h4 class="title">Open Source</h4>   
         <section class="section-os" id="open-source">
           <div class="os-card loader">
             <p class="description">Loading...</p>
           </div>
-        </section>         
+        </section>   
+        <h4 class="title">Writings</h4>   
+        <section class="section-writings" id="writings">
+          <div class="writings-card loader">
+            <p class="description">Loading...</p>
+          </div>    
+        </section>              
       </div>
     </main>
     <footer>      

@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  '@parcel/transformer-inline-string':
+    specifier: 2.9.2
+    version: 2.9.2(@parcel/core@2.9.2)
   parcel:
     specifier: ^2.9.2
     version: 2.9.2
@@ -682,6 +685,15 @@ packages:
       '@parcel/utils': 2.9.2
       '@parcel/workers': 2.9.2(@parcel/core@2.9.2)
       nullthrows: 1.1.1
+    dev: true
+
+  /@parcel/transformer-inline-string@2.9.2(@parcel/core@2.9.2):
+    resolution: {integrity: sha512-Wp00m+PqUq0Iq3nJqhphHvHPZ2OeVTQNJQ0hTwUvdO1odkO2KMDtUPsMm0NYIzVkYyvloxpSKfj5kNh/ToVOQA==}
+    engines: {node: '>= 12.0.0', parcel: ^2.9.2}
+    dependencies:
+      '@parcel/plugin': 2.9.2(@parcel/core@2.9.2)
+    transitivePeerDependencies:
+      - '@parcel/core'
     dev: true
 
   /@parcel/transformer-js@2.9.2(@parcel/core@2.9.2):

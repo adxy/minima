@@ -1,6 +1,25 @@
 import storage from "./storage";
-import arrowImg from "./public/images/arrow-right.svg";
+import arrowImg from "bundle-text:./public/images/arrow-right.svg";
+import logoImg from "bundle-text:./public/images/adxy-logo.svg";
 
+// add logo
+const logo = document.createElement("div");
+logo.innerHTML = logoImg;
+logo.classList.add("svg-div");
+logo.classList.add("logo");
+document.querySelector("#user-box").appendChild(logo);
+
+// add theme switch ability
+const rootElement = document.documentElement;
+document.getElementById("theme-button").addEventListener("pointerdown", () => {
+  const theme = rootElement.getAttribute("data-color-mode");
+  document.documentElement.setAttribute(
+    "data-color-mode",
+    theme === "dark" ? "light" : "dark"
+  );
+});
+
+// fetch articles
 async function gql(query) {
   const response = await fetch("https://api.hashnode.com/", {
     method: "POST",
@@ -29,38 +48,6 @@ const query = `{
       }
     }
   }`;
-
-// Projects mouse scroll starts.
-const slider = document.getElementById("projects");
-let mouseDown = false;
-let startX, scrollLeft;
-
-let startDragging = function (e) {
-  slider.style.cursor = "grabbing";
-  mouseDown = true;
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-};
-
-let stopDragging = function (event) {
-  slider.style.cursor = null;
-  mouseDown = false;
-};
-
-slider.addEventListener("mousemove", (e) => {
-  e.preventDefault();
-  if (!mouseDown) {
-    return;
-  }
-  const x = e.pageX - slider.offsetLeft;
-  const scroll = x - startX;
-  slider.scrollLeft = scrollLeft - scroll;
-});
-
-slider.addEventListener("mousedown", startDragging, false);
-slider.addEventListener("mouseup", stopDragging, false);
-slider.addEventListener("mouseleave", stopDragging, false);
-// Projects mouse scroll ends.
 
 gql(query)
   .then((resp) => {
@@ -103,6 +90,37 @@ gql(query)
     );
     throw err;
   });
+
+// Projects mouse scroll starts.
+const slider = document.getElementById("projects");
+let mouseDown = false;
+let startX, scrollLeft;
+
+let startDragging = function (e) {
+  slider.style.cursor = "grabbing";
+  mouseDown = true;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+};
+
+let stopDragging = function (event) {
+  slider.style.cursor = null;
+  mouseDown = false;
+};
+
+slider.addEventListener("mousemove", (e) => {
+  e.preventDefault();
+  if (!mouseDown) {
+    return;
+  }
+  const x = e.pageX - slider.offsetLeft;
+  const scroll = x - startX;
+  slider.scrollLeft = scrollLeft - scroll;
+});
+
+slider.addEventListener("mousedown", startDragging, false);
+slider.addEventListener("mouseup", stopDragging, false);
+slider.addEventListener("mouseleave", stopDragging, false);
 
 storage.openSource.forEach((contribution) => {
   const cardParent = document.createElement("div");
@@ -178,9 +196,9 @@ storage.projects.forEach((project) => {
   const codeText = document.createElement("p");
   const liveText = document.createElement("p");
 
-  const arrowButton = document.createElement("img");
-  arrowButton.alt = "arrow button right";
-  arrowButton.src = arrowImg;
+  const arrowButton = document.createElement("div");
+  arrowButton.classList.add("svg-div");
+  arrowButton.innerHTML = arrowImg;
 
   const arrowButtonClone = arrowButton.cloneNode(true);
 

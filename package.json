@@ -11,6 +11,7 @@
   "author": "Adarsh Bhadauria",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-inline-string": "2.9.2",
     "parcel": "^2.9.2"
   }
 }
