@@ -34,7 +34,7 @@
   --subtle: #686767;
   --text: #414243;
   --border-color: #b0aeae;
-  --highlight: #318CE7;
+  --highlight: #D64933;
   --copied:#027769;
   --footer-bg: #cecdcd;  
   --moon-display: none;
@@ -68,7 +68,7 @@ html {
   --margin-large: 40px;
   --margin-small: 10px;
   --margin-xs: 7.5px;
-  --border-radius: 2.5%;
+  --border-radius: 5px;
   font-family: var(--font-sans);
   font-size: var(--font-size);
   line-height: 1.5;
@@ -298,6 +298,9 @@ hr {
 
 .writings-card:hover, .os-card:hover, .project-card:hover {
   box-shadow: 1.5px 1.5px var(--highlight);
+  border: 0 solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+  border-left: 2px solid var(--border-color);
 }
 
 .writings-card .description {
