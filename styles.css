@@ -335,8 +335,13 @@ hr {
   font-size: var(--font-size-xs);
 }
 
-.os-card .languages {
+.os-card {
   display: flex;
+}
+
+.languages {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tags {
