@@ -128,7 +128,12 @@ a {
 }
 
 .theme-button {
+  transition: all 0.3s ease;
   padding: var(--padding) ;
+}
+
+.theme-button:hover {
+  transform: rotate(20deg);
 }
 
 .title {
