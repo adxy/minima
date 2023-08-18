@@ -278,9 +278,13 @@ footer {
   
 }
 
-footer p {
+footer * {
   font-size: var(--font-size-xs);
   color: var(--subtle);
+}
+
+footer a:hover {
+  color: var(--highlight);
 }
 
 hr {
