@@ -1,6 +1,6 @@
 import storage from "./storage";
-import arrowImg from "bundle-text:./public/images/arrow-right.svg";
-import logoImg from "bundle-text:./public/images/adxy-logo.svg";
+import arrowImg from "bundle-text:./public/images/external_link.svg";
+import logoImg from "bundle-text:./public/images/adxy_logo.svg";
 
 // add logo
 const logo = document.createElement("div");
