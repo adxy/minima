@@ -1,6 +1,7 @@
 <!doctype html>
 <html data-color-mode="dark" lang="en">
 
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-78ZMBSPY3X"></script>
@@ -23,59 +24,80 @@
   <meta name="keywords" content="Adarsh Bhadauria, Adxy, Software, Engineering, Personal Portfolio, Personal Website">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<div id="theme-switch-animation-box">
+  <div id="theme-switch-animation"></div>
+</div>
 
 <body>
-  <main class="main-container">
-    <div class="parent-container">
-      <section class="section-user">
-        <div id="user-box">
-          <img class="avatar" src="/public/images/avatar.webp" alt="Adarsh Image" />
-        </div>
-        <div id="theme-button">
-          <img class="theme-button" id="moon-button" src="/public/images/moon.svg" alt="moon-button">
-          <img class="theme-button" id="sun-button" src="/public/images/sun.svg" alt="sun-button">
-        </div>
-      </section>
+  <header>
+    <a id="logo-box" href="https://beta.adxy.dev"></a>
+    <div class="nav-bar">
       <section class="section-social">
-        <a class="social-icon-bg github">
-          <img src="/public/images/github.svg" alt="github icon">
-        </a>
-        <a class="social-icon-bg twitter">
-          <img src="/public/images/twitter.svg" alt="twitter icon">
-        </a>
-        <a class="social-icon-bg linkedin">
+        <p class="email">theadxy@gmail.com</p>
+        <a class="social-icon-bg linkedin" title="LinkedIn">
           <img src="/public/images/linkedin.svg" alt="linkedin icon">
         </a>
-        <p class="email">theadxy@gmail.com</p>
+        <a class="social-icon-bg github" title="GitHub">
+          <img src="/public/images/github.svg" alt="github icon">
+        </a>
+        <a class="social-icon-bg twitter" title="Twitter">
+          <img src="/public/images/twitter.svg" alt="twitter icon">
+        </a>
+
+        <a class="social-icon-bg theme" id="theme-button" title="Toggle Theme">
+          <img class="theme-button" id="moon-button" src="/public/images/moon.svg" alt="moon-button"
+            style="display: block;">
+          <img class="theme-button" id="sun-button" src="/public/images/sun.svg" alt="sun-button"
+            style="display: none;">
+        </a>
       </section>
-      <p class="intro">Namaste! I am <s><b>Adarsh Bhadauria</b>, a.k.a</s> <b>adxy</b>. Nice to see you here!</p>
-      <hr>
-      <h4 class="title">Projects</h4>
+    </div>
+
+  </header>
+  <main class="main-container">
+    <div class="parent-container">
+      <img src="public/images/adarsh-header.jpg" style="width: 100%; border-radius: 5px;"></img>
+      <h1 class="title">Namaste!</h1>
+      <p class="intro">I am <s><b>Adarsh Bhadauria</b>, a.k.a</s> <b>adxy</b>. I am an Engineer who loves design
+        & building products.
+        <br>
+        <br>
+        Sometimes I build projects that people can use, you can find a few below & most of the time I am solving
+        problems that help product grow.
+        <br>
+        <br>
+        Apart from software & design I regularly play football, chess and swim.
+      </p>
+
+      <h1 class="title">Projects</h1>
       <section class="section-projects" id="projects">
-        <div class="project-card loader">
+        <div class="project-card card loader">
           <p class="title">Loading...</p>
         </div>
       </section>
-      <h4 class="title">Open Source</h4>
+      <h1 class="title">Open Source</h1>
       <section class="section-os" id="open-source">
-        <div class="os-card loader">
+        <div class="os-card card loader">
           <p class="description">Loading...</p>
         </div>
       </section>
-      <h4 class="title">Writings</h4>
+      <h1 class="title">Writings</h1>
       <section class="section-writings" id="writings">
-        <div class="writings-card loader">
+        <div class="writings-card card loader">
           <p class="description">Loading...</p>
         </div>
       </section>
     </div>
   </main>
+  <canvas id="canvas"></canvas>
   <footer>
     <p>© Adarsh Bhadauria 2023 - 2024 |&nbsp;</p>
     <a href="https://github.com/adxy/minima" target="_blank">
       Code
     </a>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 
 </html>
