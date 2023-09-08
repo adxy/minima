@@ -13,7 +13,7 @@
 }
 
 :root[data-color-mode="light"] {   
-  --tag-bg: #FAF9F6;
+  --tag-bg: #FAF9F6;  
   --subtle: #686767;
   --text: #414243;
   --border-color: #b0aeae;
@@ -60,13 +60,13 @@ html {
   line-height: 1.5;
   background: var(--bg);  
   color: var(--text);  
-  min-height:100%;/* make sure it is at least as tall as the viewport */
+  min-height: 100%;
   position:relative;
   
 }
 
-body{
-  height:100%; /* force the BODY element to match the height of the HTML element */
+body {
+  height: 100%; 
 }
 
 
@@ -74,7 +74,7 @@ a {
   text-decoration: none;
   border-bottom: 1px solid rgba(125,125,125,.3);
   transition: border 0.3s ease-in-out;
-  color: var(--text);
+  color: var(--text) !important;
 }
 
 a:hover {
@@ -101,20 +101,16 @@ p {
   margin-bottom: var(--margin);
 }
 
-.avatar {
-  height: 4.9em;
-  margin: var(--margin-small);  
-}
-
 .logo svg {
   height: 1.5em;
   margin-left: var(--margin-small);
 }
 
-#logo-box {
-  width: 100px;
-  height: 100%;  
-  margin-left: var(--margin);
+#logo-box { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--margin-small);
   border: none;
 }
 
@@ -154,7 +150,6 @@ p {
 }
 
 .card {
-  /* transition: border .3s ease-in-out; */
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
 }
@@ -197,7 +192,7 @@ p {
 }
 
 .project-button {
-  width: 40%;
+  width: 46%;
 }
 
 .project-button div {
@@ -216,8 +211,7 @@ p {
 
 .section-social img {  
   width: 1.3em;
-  height: 1.3em;
-  
+  height: 1.3em;  
 }
 
 .social-icon-bg {
@@ -241,7 +235,6 @@ p {
 .email {
   cursor: pointer;
   color: var(--subtle);
-  margin: var(--margin-small);
 }
 
 .email:hover {
@@ -264,6 +257,20 @@ p {
   margin-right: var(--margin);
 }
 
+#header-banner-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header-banner {
+  margin: var(--margin-small);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--border-radius);
+  width: 95%;
+}
+
 header {  
   margin-top: var(--margin);
   margin-bottom: var(--margin-small);
@@ -272,7 +279,6 @@ header {
   justify-content: space-between; 
   width: 100%;
   height: 45px;
-  padding: 2px;
 }
 
 footer {
@@ -350,6 +356,10 @@ hr {
   margin: var(--margin) var(--margin-small);
 }
 
+.os-card a {
+  border: none;
+}
+
 .languages {
   display: flex;
   flex-wrap: wrap;
@@ -410,11 +420,5 @@ hr {
 @media only screen and (max-width: 600px) {
   .parent-container {
     max-width: 95vw;
-  }  
-  .avatar{
-    height: 3.5rem;
-  }
-  .logo {
-    height: 0.5rem;
-  }
+  }   
 }

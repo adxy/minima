@@ -15,9 +15,10 @@
   </script>
   <meta charset="utf-8" />
   <title>Adarsh Bhadauria - Hi there!</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script type="module" src="main.js"></script>
-  <link rel="icon" type="image/x-icon" href="public/images/favicon.ico">
+  <link rel="stylesheet" href="../styles/globals.css" />
+  <script type="module" src="../scripts/main.js"></script>
+  <script type="module" src="../scripts/crowd.js"></script>
+  <link rel="icon" type="image/x-icon" href="../public/images/favicon.ico">
   <meta charset="UTF-8">
   <meta name="description"
     content="Hi, I am Adarsh and welcome to my online portfolio website. I share my work & ideas here. Feel free to reach out to me on the given email/twitter for anything!">
@@ -33,14 +34,13 @@
     <a id="logo-box" href="https://beta.adxy.dev"></a>
     <div class="nav-bar">
       <section class="section-social">
-        <p class="email">theadxy@gmail.com</p>
         <a class="social-icon-bg linkedin" title="LinkedIn">
           <img src="/public/images/linkedin.svg" alt="linkedin icon">
         </a>
         <a class="social-icon-bg github" title="GitHub">
           <img src="/public/images/github.svg" alt="github icon">
         </a>
-        <a class="social-icon-bg twitter" title="Twitter">
+        <a class="social-icon-bg twitter" title="Twitter/X">
           <img src="/public/images/twitter.svg" alt="twitter icon">
         </a>
 
@@ -52,22 +52,30 @@
         </a>
       </section>
     </div>
-
   </header>
   <main class="main-container">
     <div class="parent-container">
-      <img src="public/images/adarsh-header.jpg" style="width: 100%; border-radius: 5px;"></img>
+      <div id="header-banner-box">
+        <img id="header-banner" src="../public/images/adarsh-header.jpg" alt="adarsh-banner"></img>
+      </div>
       <h1 class="title">Namaste!</h1>
       <p class="intro">I am <s><b>Adarsh Bhadauria</b>, a.k.a</s> <b>adxy</b>. I am an Engineer who loves design
         & building products.
         <br>
         <br>
         Sometimes I build projects that people can use, you can find a few below & most of the time I am solving
-        problems that help product grow.
+        problems that help the product grow.
         <br>
         <br>
         Apart from software & design I regularly play football, chess and swim.
+        <br>
+        <br>
+        You can reach me at <a class="email">theadxy@gmail.com</a>, <a href="https://twitter.com/theadxy"
+          target="_blank">Twitter/X</a>,
+        <a href="https://linkedin.com/in/adxy" target="_blank">LinkedIn</a> or <a href="https://github.com/adxy"
+          target="_blank">Github</a>.
       </p>
+
 
       <h1 class="title">Projects</h1>
       <section class="section-projects" id="projects">
@@ -96,7 +104,6 @@
       Code
     </a>
   </footer>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 

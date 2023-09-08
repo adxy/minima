@@ -2,7 +2,7 @@
   "name": "minima",
   "version": "1.0.0",
   "description": "Adarsh Bhadauria's personal portfolio website.",
-  "source": "index.html",
+  "source": "pages/index.html",
   "scripts": {
     "dev": "parcel",
     "build": "parcel build"
