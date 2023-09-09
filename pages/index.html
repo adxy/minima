@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="../styles/globals.css" />
   <script type="module" src="../scripts/main.js"></script>
   <script type="module" src="../scripts/crowd.js"></script>
+  <script type="module" src="../scripts/plum.js"></script>
   <link rel="icon" type="image/x-icon" href="../public/images/favicon.ico">
   <meta charset="UTF-8">
   <meta name="description"
@@ -31,7 +32,7 @@
 
 <body>
   <header>
-    <a id="logo-box" href="https://beta.adxy.dev"></a>
+    <a id="logo-box" href="https://beta.adxy.dev" title="Goto Home" aria-label="adxy-logo"></a>
     <div class="nav-bar">
       <section class="section-social">
         <a class="social-icon-bg linkedin" title="LinkedIn">
@@ -54,11 +55,11 @@
     </div>
   </header>
   <main class="main-container">
-    <div class="parent-container">
+    <div class="parent-container slide-enter-content">
+      <h1 class="title">Namaste!</h1>
       <div id="header-banner-box">
         <img id="header-banner" src="../public/images/adarsh-header.jpg" alt="adarsh-banner"></img>
       </div>
-      <h1 class="title">Namaste!</h1>
       <p class="intro">I am <s><b>Adarsh Bhadauria</b>, a.k.a</s> <b>adxy</b>. I am an Engineer who loves design
         & building products.
         <br>
@@ -97,6 +98,9 @@
       </section>
     </div>
   </main>
+  <div class="no-print" id="plum-container">
+    <canvas id="plum-canvas" width="400" height="400" />
+  </div>
   <canvas id="canvas"></canvas>
   <footer>
     <p>© Adarsh Bhadauria 2023 - 2024 |&nbsp;</p>
