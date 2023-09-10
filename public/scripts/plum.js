@@ -1,5 +1,5 @@
-import { useWindowSize, useRafFn }  from "http://esm.sh/@vueuse/core"
-import { reactive, ref, effect, computed } from "http://esm.sh/@vue/reactivity";
+import { useWindowSize, useRafFn }  from "https://esm.sh/@vueuse/core"
+import { reactive, ref, effect, computed } from "https://esm.sh/@vue/reactivity";
 
 const r180 = Math.PI;
 const r90 = Math.PI / 2;
