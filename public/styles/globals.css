@@ -35,7 +35,7 @@
     --footer-bg: #1e1c1c;  
     --moon-display: block;
     --sun-display: none;
-    --svg-filter: brightness(0) saturate(100%) invert(100%) sepia(66%) saturate(1075%) hue-rotate(288deg) brightness(123%) contrast(83%);
+    --svg-filter: brightness(0) saturate(100%) invert(99%) sepia(49%) saturate(148%) hue-rotate(275deg) brightness(112%) contrast(86%);;
   }
   
   html {  
@@ -55,7 +55,7 @@
     --margin-large: 40px;
     --margin-small: 10px;
     --margin-xs: 7.5px;
-    --border-radius: 5px; 
+    --border-radius: 0.3em; 
     --footer-negative-margin: -1px; 
     font-family: var(--font-sans);
     font-size: var(--font-size);
@@ -331,7 +331,7 @@
   
   .writings-card .date {
     position: absolute;
-    top: -12;
+    top: -1.2em;
     right: 0; 
     font-size: var(--font-size-xxs);
     font-weight: 700;
