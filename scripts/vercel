@@ -1,0 +1,7 @@
+#!/usr/bin/env bash 
+
+set -euxo pipefail
+
+mkdir -p ./bin
+make install
+make build
