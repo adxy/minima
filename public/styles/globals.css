@@ -70,19 +70,32 @@
     height: auto; 
   }  
   
-  a {
+  a, .email {
     text-decoration: none;
     border-bottom: 1px solid rgba(125,125,125,.3);
     transition: border 0.3s ease-in-out;
     color: var(--text) !important;
   }
   
-  a:hover {
+  a:hover, .email:hover {
     border-bottom: 1px solid var(--text);
   }
 
   a .svg-icon {
     filter: var(--svg-filter);
+  }
+
+  .email {
+    cursor: pointer;    
+  }
+    
+  .copied {
+    color: var(--copied) !important;
+    border: none !important;
+  }
+  
+  .copied:hover {
+    color: var(--copied) !important;
   }
   
   p {
@@ -239,24 +252,6 @@
   
   .social-icon-bg:hover {
     transform: scale(1.2, 1.2)
-  }
-  
-  .email {
-    cursor: pointer;
-    color: var(--subtle);
-  }
-  
-  .email:hover {
-    color: var(--text);
-  }
-  
-  .copied {
-    color: var(--copied) !important;
-    border: none !important;
-  }
-  
-  .copied:hover {
-    color: var(--copied) !important;
   }
   
   #header-banner-box {
