@@ -38,6 +38,7 @@ const resetPeep = ({ stage, peep }) => {
     offsetVarB = 100;
     scaleX = 0.35;
   }
+
   const direction = Math.random() > 0.5 ? 1 : -1;
   // using an ease function to skew random to lower values to help hide that peeps have no legs
   const offsetY =

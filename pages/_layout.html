@@ -1,0 +1,70 @@
+<html data-color-mode="dark">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-78ZMBSPY3X"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-78ZMBSPY3X');
+        </script>
+        <meta charset="utf-8" />
+        <title>Adarsh Bhadauria - Hi there!</title>
+        <link rel="stylesheet" href="/styles/globals.css" />
+        <script type="module" src="/scripts/main.js"></script>
+        <script type="module" src="/scripts/crowd.js"></script>
+        <script type="module" src="/scripts/plum.js"></script>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <meta charset="UTF-8">
+        <meta name="description"
+          content="Hi, I am Adarsh and welcome to my online portfolio website. I share my work & ideas here. Feel free to reach out to me on the given email/twitter for anything!">
+        <meta name="keywords" content="Adarsh Bhadauria, Adxy, Software, Engineering, Personal Portfolio, Personal Website">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      </head>
+      <div id="theme-switch-animation-box">
+        <div id="theme-switch-animation"></div>
+      </div>
+<body >
+    <header>
+        <a id="logo-box" href="https://beta.adxy.dev" title="Goto Home" aria-label="adxy-logo">
+            <img class="svg-icon" src="/images/adxy-logo.svg" alt="adxy logo"></img>
+        </a>
+        <nav class="nav-bar">            
+            <a class="nav-icon-bg linkedin" href="https://linkedin.com/in/adxy" target="_blank" data-tooltip="LinkedIn" data-tooltip-location="bottom">
+                <img src="images/linkedin.svg" alt="linkedin icon">
+            </a>
+            <a class="nav-icon-bg github" href="https://github.com/adxy" target="_blank" data-tooltip="Github" data-tooltip-location="bottom">
+                <img src="images/github.svg" alt="github icon">
+            </a>
+            <a class="nav-icon-bg twitter" href="https://twitter.com/theadxy" target="_blank" data-tooltip="Twitter/X" data-tooltip-location="bottom">
+                <img src="images/twitter.svg" alt="twitter icon">
+            </a>
+
+            <a class="nav-icon-bg theme" id="theme-button" data-tooltip="Toggle Theme" data-tooltip-location="left">
+                <img class="theme-button" id="moon-button" src="images/moon.svg" alt="moon-button"
+                    style="display: block;">
+                <img class="theme-button" id="sun-button" src="images/sun.svg" alt="sun-button"
+                    style="display: none;">
+            </a>           
+        </nav>
+    </header>
+    <main class="main-container">
+        <div class="parent-container slide-enter-content">
+            {{.Content}}
+        </div>
+    </main>
+    <div class="no-print" id="plum-container">
+        <canvas id="plum-canvas" width="400" height="400" />
+    </div>
+    <canvas id="canvas"></canvas>
+    <footer>
+        <p>© Adarsh Bhadauria 2023 - 2024 |&nbsp;</p>
+        <a href="https://github.com/adxy/minima" target="_blank">
+            Code
+        </a>
+    </footer>
+    <script src="/scripts/gsap.min.js"></script>
+</body>
+</html>

@@ -1,13 +1,4 @@
-import storage from "../storage";
-import arrowImg from "bundle-text:../public/images/external_link.svg";
-import logoImg from "bundle-text:../public/images/adxy-logo.svg";
-
-// add logo
-const logo = document.createElement("div");
-logo.innerHTML = logoImg;
-logo.classList.add("svg-div", "logo");
-document.querySelector("#logo-box").appendChild(logo);
-
+// add theme switch ability
 var body = document.body,
   html = document.documentElement;
 
@@ -21,7 +12,6 @@ var height = Math.max(
 
 const themeAnimation = document.getElementById("theme-switch-animation");
 
-// add theme switch ability
 const rootElement = document.documentElement;
 document.getElementById("theme-button").addEventListener("pointerdown", () => {
   const theme = rootElement.getAttribute("data-color-mode");
@@ -155,109 +145,17 @@ slider.addEventListener("mousedown", startDragging, false);
 slider.addEventListener("mouseup", stopDragging, false);
 slider.addEventListener("mouseleave", stopDragging, false);
 
-storage.openSource.forEach((contribution) => {
-  const cardParent = document.createElement("div");
-  const openSourceCard = document.createElement("a");
-  cardParent.classList.add("os-card", "card");
-
-  openSourceCard.href = contribution.prLink;
-  openSourceCard.target = "_blank";
-
-  const title = document.createElement("p");
-  title.innerText = contribution.title;
-  title.classList.add("description");
-
-  openSourceCard.appendChild(title);
-  const langTagDiv = document.createElement("div");
-  langTagDiv.classList.add("languages");
-
-  contribution.languages.forEach((lang) => {
-    const langTag = document.createElement("div");
-    langTag.innerText = lang;
-    langTag.classList.add("tags");
-    langTagDiv.appendChild(langTag);
-  });
-  openSourceCard.appendChild(langTagDiv);
-  cardParent.appendChild(openSourceCard);
-  const osSection = document.getElementById("open-source");
-  const loaders = [...document.querySelectorAll(".section-os .loader")];
-  loaders.forEach((loader) => osSection.removeChild(loader));
-  osSection.appendChild(cardParent);
-});
-
+// email copy functionality
 const emailDiv = document.querySelector(".email");
-
+const email = "theadxy@gmail.com"
 emailDiv.addEventListener("pointerdown", () => {
-  navigator.clipboard.writeText(storage.email);
+  navigator.clipboard.writeText(email);
   emailDiv.innerText = "copied to clipboard. ✓";
   emailDiv.classList.add("copied");
   setTimeout(() => {
-    emailDiv.innerText = storage.email;
+    emailDiv.innerText = email;
     emailDiv.classList.remove("copied");
   }, 2000);
-});
-
-storage.socials.forEach((social) => {
-  const elm = document.querySelector(`.${social.platform}`);
-  elm.href = social.link;
-  elm.target = "_blank";
-});
-
-storage.projects.forEach((project) => {
-  const card = document.createElement("div");
-  card.classList.add("project-card", "card");
-
-  const topDiv = document.createElement("div");
-
-  const title = document.createElement("p");
-  title.innerText = project.title;
-  title.classList.add("title");
-  topDiv.appendChild(title);
-
-  const brief = document.createElement("p");
-  brief.innerText = project.brief;
-  brief.classList.add("brief");
-  topDiv.appendChild(brief);
-
-  const buttonDiv = document.createElement("div");
-  buttonDiv.classList.add("project-buttons-box");
-
-  const codeButton = document.createElement("a");
-  codeButton.classList.add("project-button");
-
-  const liveButton = codeButton.cloneNode(true);
-  const codeText = document.createElement("p");
-  const liveText = document.createElement("p");
-
-  const arrowButton = document.createElement("div");
-  arrowButton.classList.add("svg-div");
-  arrowButton.innerHTML = arrowImg;
-
-  const arrowButtonClone = arrowButton.cloneNode(true);
-
-  codeText.innerText = "code";
-  liveText.innerText = "live";
-
-  codeButton.appendChild(codeText);
-  codeButton.appendChild(arrowButton);
-  liveButton.appendChild(liveText);
-  liveButton.appendChild(arrowButtonClone);
-  buttonDiv.appendChild(codeButton);
-  buttonDiv.appendChild(liveButton);
-
-  card.appendChild(topDiv);
-  card.appendChild(buttonDiv);
-
-  const projectSection = document.querySelector(".section-projects");
-  const loaders = [...document.querySelectorAll(".section-projects .loader")];
-  loaders.forEach((loader) => projectSection.removeChild(loader));
-  projectSection.appendChild(card);
-
-  codeButton.href = project.code;
-  codeButton.target = "_blank";
-
-  liveButton.href = project.link;
-  liveButton.target = "_blank";
 });
 
 // manage footer -ve margin-top

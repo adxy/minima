@@ -12,6 +12,6 @@ Minima scores a perfect 100 in all fields.
 ![Lighthouse Scores](https://raw.githubusercontent.com/adxy/images/main/adxy.dev/lighthouse-score.png)
 
 ## Build tool
-Minima uses [Parcel](https://parceljs.org/) to build it's code. 
+Minima uses [Alvu](https://barelyhuman.github.io/alvu/) to build it's code. 
 ## Can I use this?
 Feel free to fork it and make it your own!
