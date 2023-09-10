@@ -6,7 +6,7 @@ w: watch
 
 build:
 	./bin/alvu --highlight --highlight-theme="algol_nu" --hard-wrap=false
-	./public/globals.css -o ./dist/styles.css --minify
+	-i ./public/globals.css -o ./dist/styles.css --minify
 	./bin/pagefind --source "dist"
 
 install: 
