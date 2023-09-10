@@ -1,15 +1,9 @@
+@import url(https://fonts.bunny.net/css?family=Inter:400,600,500,700);
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  @font-face {
-    font-display: swap;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/inter-v12-latin-regular.woff2') format('woff2'); 
   }
   
   :root[data-color-mode="light"] {   
@@ -40,8 +34,7 @@
   
   html {  
     --bg: #050505;
-    --font-sans: 'Inter', sans-serif;
-    --font-headings: 'Inter', sans-serif;
+    --font-sans: 'Inter', sans-serif; 
     --font-size: 1rem;
     --font-size-small: 25px;
     --font-size-xs: 17.5px;
@@ -140,7 +133,6 @@
     margin: var(--margin-small);
     margin-top: var(--margin-large);
     margin-bottom: var(--margin);
-    font-family: var(--font-headings);
     font-weight: 500;
     font-size: var(--font-size-h1);
     line-height: 1.1111111;
