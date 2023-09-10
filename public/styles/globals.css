@@ -379,9 +379,9 @@
   }
   
   #theme-switch-animation {
-    position: absolute;
-    right: 45;
-    top: 45;
+    position: absolute; 
+    top: 2.6em;
+    right: 2.6em;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -392,10 +392,7 @@
   
   #theme-switch-animation-box {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; 
+    inset: 0;
     overflow: hidden;  
     z-index: -1;  
   }
