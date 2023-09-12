@@ -33,7 +33,7 @@ function Writer(filedata)
 			}
 
 			if not source_data.data.html.open_graph.img then
-				source_data.data.html.open_graph.img = "https://og.barelyhuman.xyz/generate?fontSize=16&title="..source_data.meta.title.."&subtitle=https://reaper.is&fontSizeTwo=8&color=%23000"
+				source_data.data.html.open_graph.img = "https://og.barelyhuman.xyz/generate?fontSize=16&title="..source_data.meta.title.."&subtitle=https://adxy.dev&fontSizeTwo=8&color=%23000"
 			end
 
 			
