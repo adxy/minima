@@ -26,8 +26,10 @@ p img {
     max-width: 100%;
 }
 
-mjx-math {
-    max-width: 100%;
+mjx-container {
+    padding: var(--padding) 0;
+    height: min-content;
+    overflow-x: scroll;
 }
 
 
