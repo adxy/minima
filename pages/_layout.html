@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="/styles/globals.css" />
+    <script type="module" src="/scripts/main.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-78ZMBSPY3X"></script>
     <script>
@@ -13,15 +14,42 @@
         gtag('js', new Date());
         gtag('config', 'G-78ZMBSPY3X');
     </script>
-    <meta charset="utf-8" />
-    <title>Adarsh Bhadauria - Hi there!</title>
-    <script type="module" src="/scripts/main.js"></script>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta charset="UTF-8">
-    <meta name="description"
-        content="Hi, I am Adarsh and welcome to my online portfolio website. I share my work & ideas here. Feel free to reach out to me on the given email/twitter for anything!">
+    {{if eq .Data.html.title nil}}
+    <title>Adarsh Bhadauria - Hi there!</title>
+    {{else}}
+    <title>{{.Data.html.title}} | adxy</title>
+    {{end}}
+
+    <meta charset="UTF-8" />
     <meta name="keywords" content="Adarsh Bhadauria, Adxy, Software, Engineering, Personal Portfolio, Personal Website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{if .Data.html }}
+    <meta name="title" content="{{.Data.html.title}}" />
+    <meta name="description" content="{{.Data.html.description}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{.Data.html.open_graph.url}}" />
+    <meta property="og:title" content="{{.Data.html.title}}" />
+    <meta property="og:description" content="{{.Data.html.description}}" />
+    {{if .Data.html.open_graph.img }}
+    <meta property="og:image" content="{{.Data.html.open_graph.img}}" />
+    {{end}}
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{.Data.html.open_graph.url}}" />
+    <meta property="twitter:title" content="{{.Data.html.title}}" />
+    <meta property="twitter:description" content="{{.Data.html.description}}" />
+
+    {{if .Data.html.open_graph.img }}
+    <meta property="twitter:image" content="{{.Data.html.open_graph.img}}" />
+    {{end}} {{else}}
+    <meta name="title" content="adxy | engineer" />
+    <meta name="description"
+        content="Hi, I am Adarsh and welcome to my online portfolio website. I share my work & ideas here. Feel free to reach out to me on the given email/twitter for anything!" />
+    {{end}}
 </head>
 
 <body>
