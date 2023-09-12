@@ -146,7 +146,7 @@ const img = document.createElement("img");
 img.onload = init;
 img.src = config.src;
 
-const canvas = document.querySelector("#canvas");
+const canvas = document.querySelector("#crowd-canvas");
 const ctx = canvas.getContext("2d");
 
 const stage = {

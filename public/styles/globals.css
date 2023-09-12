@@ -32,8 +32,8 @@
     font-display: swap;
   }
   
-  :root[data-color-mode="light"] {   
-    --tag-bg: #FAF9F6;  
+  :root[data-color-mode="light"] {  
+    --bg: #FAF9F6;
     --subtle: #686767;
     --text: #414243;
     --border-color: #b0aeae;
@@ -46,7 +46,7 @@
   }
   
   :root[data-color-mode="dark"] {
-    --tag-bg: #050505 ;
+    --bg: #050505;
     --subtle: #888888;
     --text: #ededed;
     --border-color: #2a2929;
@@ -58,8 +58,7 @@
     --svg-filter: brightness(0) saturate(100%) invert(99%) sepia(49%) saturate(148%) hue-rotate(275deg) brightness(112%) contrast(86%);;
   }
   
-  html {  
-    --bg: #050505;
+  html {
     --font-sans: 'Inter', sans-serif; 
     --font-size: 1rem;
     --font-size-small: 25px;
@@ -322,11 +321,11 @@
     color: var(--highlight);
   }
   
-  #canvas {
+  #crowd-canvas {
     margin-top: var(--footer-negative-margin);
     position: relative;
     width: 100%;
-    margin-bottom: -6px;
+    margin-bottom: -10px;
     pointer-events: none;
     z-index: -1;
   }
@@ -357,7 +356,7 @@
     border-radius: 16px;
     border: 1px solid var(--highlight);
     padding: var(--padding-xxs) var(--padding-small);
-    background-color: var(--tag-bg);
+    background-color: var(--bg);
     width: fit-content;
   }
   
@@ -399,25 +398,6 @@
   .description {
     margin: var(--margin-small);
     color: var(--subtle);
-  }
-  
-  #theme-switch-animation {
-    position: absolute; 
-    top: 2.6em;
-    right: 2.6em;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    transform: translate(50%, -50%);
-    transition: width .5s ease-in-out, height .5s ease-in-out;   
-    z-index: -1;
-  }
-  
-  #theme-switch-animation-box {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;  
-    z-index: -1;  
   }
   
   #plum-container {
@@ -639,3 +619,20 @@
     transform-origin: bottom;
   }
   
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+  ::view-transition-old(root) {
+    z-index: 1;
+  }
+  ::view-transition-new(root) {
+    z-index: 9999;
+  }
+  :root[data-color-mode="dark"]::view-transition-old(root) {
+    z-index: 9999;
+  }
+  :root[data-color-mode="dark"]::view-transition-new(root) {
+    z-index: 1;
+  }

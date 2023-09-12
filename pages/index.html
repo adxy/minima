@@ -20,7 +20,7 @@
 </p>
 <h1 class="title">Projects</h1>
 <section class="section-projects" id="projects">
-{{ range .Data.projects }}
+{{ range .Data.static.projects }}
 <div class="project-card card loader">
     <div>
         <p class="title">{{ .title }}</p>
@@ -41,7 +41,7 @@
 </section>
 <h1 class="title">Open Source</h1>
 <section class="section-os" id="open-source">
-{{ range .Data.openSource }}
+{{ range .Data.static.openSource }}
 <div class="os-card card">
 <a href="{{ .prLink }}" target="_blank">
     <p class="description">{{ .title }}</p>
@@ -52,14 +52,21 @@
 </div>
 {{ end }}
 </div>
-</a>
-        
+</a>        
 </div>
 {{ end }}
 </section>
 <h1 class="title">Writings</h1>
 <section class="section-writings" id="writings">
-    <div class="writings-card card loader">
-        <p class="description">Loading...</p>
-    </div>
+<ul style="list-style-type: none">
+{{range .Data.writing.pages}}
+<li class="writings-card card">
+<a  href="{{print  " /writings/" .slug}}">
+<div class="description">{{.title}}</div>
+<div class="date">{{.formatteddate}}</div>
+</a>
+</li>
+{{end}}
+</ul>
 </section>
+<script type="module" src="/scripts/index.js"></script>    

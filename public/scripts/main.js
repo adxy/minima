@@ -1,162 +1,58 @@
-// add theme switch ability
-var body = document.body,
-  html = document.documentElement;
+const setOrToggleTheme = (event) => {
+  let selectedTheme = localStorage.getItem("theme");  
 
-var height = Math.max(
-  body.scrollHeight,
-  body.offsetHeight,
-  html.clientHeight,
-  html.scrollHeight,
-  html.offsetHeight
-);
+  if(!event){
+    document.documentElement.setAttribute("data-color-mode", selectedTheme === "light" ? "light" : "dark");
+    localStorage.setItem("theme", selectedTheme === "light" ? "light" : "dark");
+    return
+  }  
+  
 
-const themeAnimation = document.getElementById("theme-switch-animation");
+  const isDark = selectedTheme === "dark" ? true : false;
+  const isAppearanceTransition = document.startViewTransition
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-const rootElement = document.documentElement;
-document.getElementById("theme-button").addEventListener("pointerdown", () => {
-  const theme = rootElement.getAttribute("data-color-mode");
-  const moonButton = document.getElementById("moon-button");
-  const sunButton = document.getElementById("sun-button");
-  setTimeout(() => {
-    document.documentElement.setAttribute(
-      "data-color-mode",
-      theme === "dark" ? "light" : "dark"
-    );
-  }, 200);
-  if (theme == "dark") {
-    moonButton.style.display = "none";
-    sunButton.style.display = "block";
-    themeAnimation.style.width = height * 4.5 + "px";
-    themeAnimation.style.height = height * 4.5 + "px";
-    themeAnimation.style.backgroundColor = "#FAF9F6";
-    document.body.style.setProperty("--tag-bg", "#FAF9F6");
-  } else {
-    themeAnimation.style.width = 0;
-    themeAnimation.style.height = 0;
-    themeAnimation.style.backgroundColor = "#FAF9F6";
-    document.body.style.setProperty("--tag-bg", "#050505");
-    setTimeout(() => {
-      moonButton.style.display = "block";
-      sunButton.style.display = "none";
-    }, 500);
-  }
-});
-
-// fetch articles
-async function gql(query) {
-  const response = await fetch("https://api.hashnode.com/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query }),
-  });
-
-  if (!response || !response.ok) {
-    throw new Error("Something went wrong while fetching the articles!");
+  if (!isAppearanceTransition) {
+    document.documentElement.setAttribute("data-color-mode", selectedTheme === "dark" ? "light" : "dark");
+    localStorage.setItem("theme", selectedTheme === "dark" ? "light" : "dark")
+    return
   }
 
-  return response.json();
+  const x = event.clientX
+  const y = event.clientY
+  const endRadius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y),
+  )
+
+  const transition = document.startViewTransition(async () => {
+    document.documentElement.setAttribute("data-color-mode", selectedTheme === "dark" ? "light" : "dark");
+    localStorage.setItem("theme", selectedTheme === "dark" ? "light" : "dark");    
+  })
+  transition.ready
+    .then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ]
+      document.documentElement.animate(
+        {
+          clipPath: !isDark
+            ? [...clipPath].reverse()
+            : clipPath,
+        },
+        {
+          duration: 400,
+          easing: 'ease-out',
+          pseudoElement: !isDark
+            ? '::view-transition-old(root)'
+            : '::view-transition-new(root)',
+        },
+      )
+    })
 }
 
-const query = `{
-    user(username: "adxy") {
-      publication {
-        posts(page: 0) {
-         slug
-         title
-         brief
-         dateAdded
-        }
-      }
-    }
-  }`;
-
-gql(query)
-  .then((resp) => {
-    const apiResponse = resp.data.user.publication.posts;
-    apiResponse.forEach((post) => {
-      const cardParent = document.createElement("div");
-      const card = document.createElement("a");
-      cardParent.classList.add("writings-card", "card");
-      const title = document.createElement("p");
-
-      card.href = `https://adxy.hashnode.dev/${post.slug}`;
-      card.target = "_blank";
-
-      title.innerText = post.title;
-      title.classList.add("description");
-      card.appendChild(title);
-
-      const date = document.createElement("p");
-      const dateAdded = new Date(post.dateAdded).toLocaleDateString();
-      date.innerText = dateAdded;
-      date.classList.add("date");
-      card.appendChild(date);
-
-      cardParent.appendChild(card);
-      const elm = document.getElementById("writings");
-      const loaders = [
-        ...document.querySelectorAll(".section-writings .loader"),
-      ];
-      loaders.forEach((loader) => elm.removeChild(loader));
-      elm.appendChild(cardParent);
-    });
-  })
-  .catch((err) => {
-    const loaders = [
-      ...document.querySelectorAll(".section-writings .loader p"),
-    ];
-    loaders.forEach(
-      (loader) =>
-        (loader.innerText = "Something went wrong while fetching articles!")
-    );
-    throw err;
-  });
-
-// Projects mouse scroll starts.
-const slider = document.getElementById("projects");
-let mouseDown = false;
-let startX, scrollLeft;
-
-let startDragging = function (e) {
-  slider.style.cursor = "grabbing";
-  mouseDown = true;
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-};
-
-let stopDragging = function (event) {
-  slider.style.cursor = null;
-  mouseDown = false;
-};
-
-slider.addEventListener("mousemove", (e) => {
-  e.preventDefault();
-  if (!mouseDown) {
-    return;
-  }
-  const x = e.pageX - slider.offsetLeft;
-  const scroll = x - startX;
-  slider.scrollLeft = scrollLeft - scroll;
-});
-
-slider.addEventListener("mousedown", startDragging, false);
-slider.addEventListener("mouseup", stopDragging, false);
-slider.addEventListener("mouseleave", stopDragging, false);
-
-// email copy functionality
-const emailDiv = document.querySelector(".email");
-const email = "theadxy@gmail.com"
-emailDiv.addEventListener("pointerdown", () => {
-  navigator.clipboard.writeText(email);
-  emailDiv.innerText = "copied to clipboard. ✓";
-  emailDiv.classList.add("copied");
-  setTimeout(() => {
-    emailDiv.innerText = email;
-    emailDiv.classList.remove("copied");
-  }, 2000);
-});
+document.getElementById("theme-button").addEventListener("pointerdown", (e) => setOrToggleTheme(e));
 
 // manage footer -ve margin-top
 const resizeObserver = new ResizeObserver((entries) => {
@@ -176,4 +72,5 @@ const resizeObserver = new ResizeObserver((entries) => {
   );
 });
 
-resizeObserver.observe(document.getElementById("canvas"));
+resizeObserver.observe(document.getElementById("crowd-canvas"));
+setOrToggleTheme()
