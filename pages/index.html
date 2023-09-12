@@ -1,7 +1,5 @@
 <h1 class="title">Namaste!</h1>
-<div id="header-banner-box">
-    <img id="header-banner" src="images/adarsh-header.avif" alt="adarsh-banner"></img>
-</div>
+<img id="header-banner" src="images/adarsh-header.avif" alt="adarsh-banner"></img>
 <p class="intro">I am <s><b>Adarsh Bhadauria</b>, a.k.a</s> <b>adxy</b>. I am an Engineer who loves design
     & building products.
     <br>
@@ -13,61 +11,62 @@
     Apart from software & design I regularly play football, chess and swim.
     <br>
     <br>
-    You can reach me at <text class="email" data-tooltip="Click to copy!" data-tooltip-location="bottom">theadxy@gmail.com</text>, <a href="https://twitter.com/theadxy"
+    You can reach me at <text class="email" data-tooltip="Click to copy!"
+        data-tooltip-location="bottom">theadxy@gmail.com</text>, <a href="https://twitter.com/theadxy"
         target="_blank">Twitter/X</a>,
     <a href="https://linkedin.com/in/adxy" target="_blank">LinkedIn</a> or <a href="https://github.com/adxy"
         target="_blank">Github</a>.
 </p>
 <h1 class="title">Projects</h1>
 <section class="section-projects" id="projects">
-{{ range .Data.static.projects }}
-<div class="project-card card loader">
-    <div>
-        <p class="title">{{ .title }}</p>
-        <p class="brief">{{ .brief }}</p>
+    {{ range .Data.static.projects }}
+    <div class="project-card card">
+        <div>
+            <p class="title">{{ .title }}</p>
+            <p class="brief">{{ .brief }}</p>
+        </div>
+        <div class="project-buttons-box">
+            <a class="project-button" href="{{ .code }}">
+                <p>code</p>
+                <img class="svg-icon" src="/images/external-link.svg" alt="external link icon">
+            </a>
+            <a class="project-button" href="{{ .link }}">
+                <p>live</p>
+                <img class="svg-icon" src="/images/external-link.svg" alt="external link icon">
+            </a>
+        </div>
     </div>
-    <div class="project-buttons-box">
-        <a class="project-button" href="{{ .code }}">
-            <p>code</p>            
-            <img class="svg-icon" src="/images/external-link.svg" alt="external link icon">
-        </a>
-        <a class="project-button" href="{{ .link }}">
-            <p>live</p>
-            <img class="svg-icon" src="/images/external-link.svg" alt="external link icon">
-        </a>
-    </div>  
-</div>
-{{ end }}
+    {{ end }}
 </section>
 <h1 class="title">Open Source</h1>
 <section class="section-os" id="open-source">
-{{ range .Data.static.openSource }}
-<div class="os-card card">
-<a href="{{ .prLink }}" target="_blank">
-    <p class="description">{{ .title }}</p>
-<div class="languages">
-{{ range .languages }}
-<div class="tags">
-{{ . }}
-</div>
-{{ end }}
-</div>
-</a>
-        
-</div>
-{{ end }}
+    {{ range .Data.static.openSource }}
+    <div class="os-card card">
+        <a href="{{ .prLink }}" target="_blank">
+            <p class="description">{{ .title }}</p>
+            <div class="languages">
+                {{ range .languages }}
+                <div class="tags">
+                    {{ . }}
+                </div>
+                {{ end }}
+            </div>
+        </a>
+
+    </div>
+    {{ end }}
 </section>
 <h1 class="title">Writings</h1>
 <section class="section-writings" id="writings">
-<ul style="list-style-type: none">
-{{range .Data.writing.pages}}
-<li class="writings-card card">
-<a  href="{{print  " /writings/" .slug}}">
-<div class="description">{{.title}}</div>
-<div class="date">{{.formatteddate}}</div>
-</a>
-</li>
-{{end}}
-</ul>
+    <ul style="list-style-type: none">
+        {{range .Data.writing.pages}}
+        <li class="writings-card card">
+            <a href="{{print  " /writings/" .slug}}">
+                <div class="description">{{.title}}</div>
+                <div class="date">{{.formatteddate}}</div>
+            </a>
+        </li>
+        {{end}}
+    </ul>
 </section>
-<script type="module" src="/scripts/index.js"></script>    
+<script type="module" src="/scripts/index.js"></script>
