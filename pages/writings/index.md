@@ -4,7 +4,7 @@
 <ul style="list-style-type: none">
 {{range .Data.writing.pages}}
 <li class="writings-card card">
-<a  href="{{print  " /writings/" .slug ".html"}}">
+<a  href="{{print  " /writings/" .slug}}">
 <div class="description">{{ .title }}</div>
 <div class="date">{{ .formatteddate }}</div>
 </a>
