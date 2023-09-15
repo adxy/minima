@@ -21,6 +21,11 @@ local projects_table = {
 			prLink = "https://github.com/barelyhuman/typer/pull/4",
 			languages = { "VanillaJs", "CSS" },
 		},
+		{
+			title = "Added support for 404 (not found) page in alvu (a static site generator).",
+			prLink = "https://github.com/barelyhuman/alvu/pull/7",
+			languages = { "GoLang" },
+		},
 	},
 	socials = {
 		{ platform = "twitter", link = "https://twitter.com/theadxy" },
