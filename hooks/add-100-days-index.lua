@@ -1,6 +1,6 @@
 package.path = package.path .. ";../lib/?.lua"
 
-ForFile = "writings/index.md"
+ForFile = "challenges/100-days/index.html"
 
 local lib = require("lib.utils")
 local yaml = require("yaml")
@@ -8,17 +8,17 @@ local strings = require("strings")
 local json = require("json")
 local alvu = require("alvu")
 
-local function sortbydate(postone, posttwo)
-	return postone.date > posttwo.date
+local function sortByDay(postone, posttwo)
+	return postone.day > posttwo.day
 end
 
 function Writer(filedata)
-	local basePath = "pages/writings"
+	local basePath = "pages/challenges/100-days"
 	local files = alvu.files(basePath)
-	local meta = {}
+	local results = {}
 
 	for file = 1, #files do
-		if not string.find(files[file], "index.md") then
+		if not string.find(files[file], "index.html") then
 			local name = string.gsub(files[file], ".md", "")
 			name = string.gsub(name, ".html", "")
 
@@ -29,29 +29,24 @@ function Writer(filedata)
 
 				if match[2] then
 					local frontmatterParsed = yaml.decode(match[2])
-					local date = lib.parse_dates(frontmatterParsed.date)
-					if frontmatterParsed.published then
-						if not frontmatterParsed.rss_only then
-							table.insert(meta, {
-								slug = name,
-								title = frontmatterParsed.title,
-								date = date,
-								formatteddate = os.date("%d-%m-%Y", date),
-							})
-						end
-					end
+					table.insert(results, {
+						day = frontmatterParsed.day,
+						gym = frontmatterParsed.gym,
+						activity = frontmatterParsed.activity,
+						learn = frontmatterParsed.learn,
+						work = frontmatterParsed.work,
+						diet = frontmatterParsed.diet,
+					})
 				end
 			end
 		end
 	end
 
-	table.sort(meta, sortbydate)
+	table.sort(results, sortByDay)
 
 	return json.encode({
 		data = {
-			writing = {
-				pages = meta,
-			},
+			days = results,
 		},
 	})
 end

@@ -122,6 +122,58 @@ a .svg-icon {
 
 p {
   line-height: 1.75;
+  margin: 1em 0;
+}
+
+h1 {
+  margin: 1em 0 2em 0;
+}
+
+h2,
+h3,
+h4 {
+  margin: 1.2em 0;
+}
+
+ul li {
+  margin-left: 1.2em;
+}
+
+p:has(> img) {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+p img {
+  max-width: 100%;
+}
+
+mjx-container {
+  padding: var(--padding) 0;
+  height: min-content;
+  overflow-x: scroll;
+}
+
+
+blockquote {
+  font-size: 1.4em;
+  margin: 2em auto;
+  font-style: italic;
+  padding: 1.2em 30px 1.2em 2.2em;
+  border-left: 0.2em solid var(--highlight);
+  line-height: 1.6;
+  position: relative;
+
+}
+
+blockquote::before {
+  content: "\201C";
+  color: var(--highlight);
+  font-size: 4em;
+  position: absolute;
+  left: 10px;
+  top: -10px;
 }
 
 .main-container {
@@ -158,15 +210,6 @@ p {
   justify-content: center;
   margin-left: var(--margin);
   border: none;
-}
-
-
-.section-user,
-.section-user * {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .title {
@@ -248,6 +291,11 @@ p {
   width: fit-content;
   height: 100%;
   margin-right: var(--margin);
+}
+
+.nav-icon {
+  width: 1.25em;
+  height: 1.25em;
 }
 
 .nav-icon-bg {

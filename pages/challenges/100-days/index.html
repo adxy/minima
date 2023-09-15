@@ -1,0 +1,121 @@
+<style>
+    .hundred-day-card-box {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .hundred-day-card {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        margin: var(--margin) 0;
+    }
+
+    .hundred-day-card * {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: var(--padding-small) 0;
+        margin: 0;
+    }
+
+    .title {
+        font-size: var(--font-size);
+    }
+
+    .day {
+        position: absolute;
+        top: -1em;
+        right: 0;
+        font-size: var(--font-size-xxs);
+        font-weight: 700;
+        color: var(--highlight);
+        border-radius: 16px;
+        border: 1px solid var(--highlight);
+        padding: var(--padding-xxs) var(--padding-small);
+        background-color: var(--bg);
+        width: fit-content;
+    }
+
+    .no {
+        color: #EA3C53
+    }
+
+    .yes {
+        color: #29AB87;
+    }
+
+    .rest {
+        color: #29AB87;
+    }
+</style>
+<h1>My 100-day challenge</h1>
+<blockquote>
+    I've decided to challenge myself for 100 days where I'll be trying to spend perfect days by completing all my daily
+    tasks for the next 100 days.
+</blockquote>
+<p>My daily/weekly tasks would be:</p>
+<ul>
+    <li>Going to the gym. Daily. Sunday Rest.</li>
+    <li>Swimming/Football/Running (Activity) in the evening. Daily. (Usually Fridays are football.)</li>
+    <li>Learning something for 2 hours. Daily.</li>
+    <li>Doing Office work. Office Days.</li>
+    <li>Taking calorie surplus diet. Daily.</li>
+    <li>Publishing an article on every Sunday. Weekly.</li>
+</ul>
+<p>I'll share my daily progress here and write something about it.</p>
+
+<div class="hundred-day-card-box">
+    {{ range .Data.days }}
+    <a class="hundred-day-card card" href="/challenges/100-days/{{ .day }}">
+        <p class="day">DAY #{{ .day }}</p>
+        <div class="gym">
+            <p class="title">Gym</p>
+            {{ if eq .gym "no"}}
+            <p class="no">X</p>
+            {{ else if eq .gym "yes"}}
+            <p class="yes">Y</p>
+            {{ else }}
+            <p class="rest">Rest</p>
+            {{ end }}
+        </div>
+        <div class="swim">
+            <p class="title">Activity</p>
+            {{ if eq .activity "no"}}
+            <p class="no">X</p>
+            {{ else if eq .activity "yes"}}
+            <p class="yes">Y</p>
+            {{ else }}
+            <p class="rest">Rest</p>
+            {{ end }}
+        </div>
+        <div class="learn">
+            <p class="title">Learn</p>
+            {{ if eq .learn "no"}}
+            <p class="no">X</p>
+            {{ else }}
+            <p class="yes">Y</p>
+            {{ end }}
+        </div>
+        <div class="work">
+            <p class="title"> Work</p>
+            {{ if eq .work "no"}}
+            <p class="no">X</p>
+            {{ else if eq .work "yes"}}
+            <p class="yes">Y</p>
+            {{ else }}
+            <p class="rest">Rest</p>
+            {{ end }}
+        </div>
+        <div class="diet">
+            <p class="title">Diet</p>
+            {{ if eq .diet "no"}}
+            <p class="no">X</p>
+            {{ else }}
+            <p class="yes">Y</p>
+            {{ end }}
+        </div>
+    </a>
+    {{ end }}
+</div>
