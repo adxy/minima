@@ -26,6 +26,9 @@
     <meta name="keywords" content="Adarsh Bhadauria, Adxy, Software, Engineering, Personal Portfolio, Personal Website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="og:image" content="https://beta.adxy.dev/images/og-banner.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://beta.adxy.dev/images/og-banner.jpg" />
 
     {{if .Data.html }}
     <meta name="title" content="{{.Data.html.title}}" />
@@ -34,20 +37,21 @@
     <meta property="og:url" content="{{.Data.html.open_graph.url}}" />
     <meta property="og:title" content="{{.Data.html.title}}" />
     <meta property="og:description" content="{{.Data.html.description}}" />
-    {{end}}
 
-    <meta property="og:image" content="https://beta.adxy.dev/images/og-banner.jpg" />
-
-    <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="{{.Data.html.open_graph.url}}" />
     <meta property="twitter:title" content="{{.Data.html.title}}" />
     <meta property="twitter:description" content="{{.Data.html.description}}" />
 
-    {{if .Data.html.open_graph.img }}
+
     <meta property="twitter:image" content="{{.Data.html.open_graph.img}}" />
-    {{end}} {{else}}
+    {{else}}
     <meta name="title" content="adxy | engineer" />
     <meta name="description"
+        content="Hi, I am Adarsh and welcome to my online portfolio website. I share my work & ideas here. Feel free to reach out to me on the given email/twitter for anything!" />
+
+    <meta property="twitter:url" content="https://beta.adxy.dev" />
+    <meta property="twitter:title" content="adxy | engineer" />
+    <meta property="twitter:description"
         content="Hi, I am Adarsh and welcome to my online portfolio website. I share my work & ideas here. Feel free to reach out to me on the given email/twitter for anything!" />
     {{end}}
 </head>
