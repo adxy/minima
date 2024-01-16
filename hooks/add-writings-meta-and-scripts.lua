@@ -30,16 +30,9 @@ function Writer(filedata)
 					open_graph = {
 						url = "/writings/" .. name,
 						title = source_data.meta.title,
-						img = source_data.meta.image_url,
 					},
 				},
 			}
-
-			if not source_data.data.html.open_graph.img then
-				source_data.data.html.open_graph.img = "https://og.barelyhuman.xyz/generate?fontSize=16&title="
-					.. source_data.meta.title
-					.. "&subtitle=https://adxy.dev&fontSizeTwo=8&color=%23000"
-			end
 		end
 	end
 

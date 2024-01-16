@@ -34,9 +34,9 @@
     <meta property="og:url" content="{{.Data.html.open_graph.url}}" />
     <meta property="og:title" content="{{.Data.html.title}}" />
     <meta property="og:description" content="{{.Data.html.description}}" />
-    {{if .Data.html.open_graph.img }}
-    <meta property="og:image" content="{{.Data.html.open_graph.img}}" />
     {{end}}
+
+    <meta property="og:image" content="https://beta.adxy.dev/images/og-banner.jpg" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="{{.Data.html.open_graph.url}}" />
@@ -82,6 +82,7 @@
             </a>
         </nav>
     </header>
+    <div id="dots"></div>
     <main class="main-container">
         <div class="parent-container slide-enter-content">
             {{.Content}}
