@@ -16,7 +16,7 @@ clean:
 	rm ./bin/alvu
 
 watchStyles:
-	./public/globals.css -o ./dist/styles.css --watch
+	./bin/tailwindcss -i ./public/styles/globals.css -o ./dist/styles.css --watch
 
 watchPages:
 	./bin/alvu -highlight-theme="algol_nu" -hard-wrap=false -serve 
