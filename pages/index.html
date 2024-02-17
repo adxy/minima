@@ -1,23 +1,9 @@
-<h1 class="title">Namaste!</h1>
+<h1 class="title">Namasté, I'm <s>Adarsh Bhadauria</s> adxy</h1>
+<p class="category-info"> minamilist, but not.</p>
 <img id="header-banner" src="images/adarsh-header.avif" alt="adarsh-banner"></img>
-<p class="intro">I am <s><b>Adarsh Bhadauria</b>, a.k.a</s> <b>adxy</b>. I am an Engineer who loves design
-    & building products.
-    <br>
-    <br>
-    Sometimes I build projects that people can use, you can find a few below & most of the time I am solving
-    problems that help the product grow.
-    <br>
-    <br>
-    Apart from software & design I regularly play football, chess and swim.
-    <br>
-    <br>
-    You can reach me at <text class="email" data-tooltip="Click to copy!"
-        data-tooltip-location="bottom">theadxy@gmail.com</text>, <a href="https://twitter.com/theadxy"
-        target="_blank">Twitter/X</a>,
-    <a href="https://linkedin.com/in/adxy" target="_blank">LinkedIn</a> or <a href="https://github.com/adxy"
-        target="_blank">Github</a>.
-</p>
+
 <h1 class="title">Projects</h1>
+<p class="category-info">a collection of my projects.</p>
 <section class="section-projects" id="projects">
     {{ range .Data.static.projects }}
     <div class="project-card card">
@@ -39,6 +25,9 @@
     {{ end }}
 </section>
 <h1 class="title">Open Source</h1>
+<p class="category-info"> my OS contributions are to projects I actually use & if that project needs a fix or
+    improvement,
+    hence you'll not find a lot of irrelevant OS contributions.</p>
 <section class="section-os" id="open-source">
     {{ range .Data.static.openSource }}
     <div class="os-card card">
@@ -57,6 +46,9 @@
     {{ end }}
 </section>
 <h1 class="title">Writings</h1>
+<p class="category-info"> a collection of technical articles and basically anything exciting that I am learning & want
+    to share with
+    you.</p>
 <section class="section-writings" id="writings">
     <ul style="list-style-type: none">
         {{range .Data.writing.pages}}

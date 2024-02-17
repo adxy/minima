@@ -47,6 +47,13 @@ local projects_table = {
 			link = "https://adxy.dev",
 			code = "https://github.com/adxy/minima",
 		},
+		{
+			title = "Whattime.live",
+			brief = "Coming Soon. Trying to build a legit product. ETA April.",
+			tags = { "NextJs", "NodeJs", "MongoDB" },
+			link = "#",
+			code = "#",
+		},
 	},
 }
 local function sortbydate(postone, posttwo)
