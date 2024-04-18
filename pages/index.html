@@ -52,12 +52,12 @@
 <section class="section-writings" id="writings">
     <ul style="list-style-type: none">
         {{range .Data.writing.pages}}
-        <li class="writings-card card">
-            <a href="{{print  " /writings/" .slug}}">
+        <a href="{{print  " /writings/" .slug}}">
+            <li class="writings-card card">
                 <div class="description">{{.title}}</div>
                 <div class="date">{{.formatteddate}}</div>
-            </a>
-        </li>
+            </li>
+        </a>
         {{end}}
     </ul>
 </section>
