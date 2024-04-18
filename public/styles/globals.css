@@ -5,33 +5,6 @@
   overflow-wrap: break-word;
 }
 
-@font-face {
-  font-family: "Inter";
-  src:
-    url(.././fonts/inter-latin-400-normal.woff2) format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src:
-    url(.././fonts/inter-latin-500-normal.woff2) format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src:
-    url(.././fonts/inter-latin-700-normal.woff2) format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root[data-color-mode="light"] {
   --bg: #FAF9F6;
   --subtle: #686767;
@@ -60,7 +33,7 @@
 }
 
 html {
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Raleway', sans-serif;
   --font-size: 1rem;
   --font-size-small: 25px;
   --font-size-xs: 17.5px;
@@ -72,6 +45,7 @@ html {
   --padding-xxs: 2.5px;
   --margin: 20px;
   --margin-large: 40px;
+  --margin-xl: 45px;
   --margin-small: 10px;
   --margin-xs: 7.5px;
   --border-radius: 0.3em;
@@ -105,6 +79,10 @@ a:hover,
 
 a .svg-icon {
   filter: var(--svg-filter);
+}
+
+s {
+  text-decoration-color: var(--highlight);
 }
 
 .email {
@@ -213,11 +191,16 @@ blockquote::before {
 }
 
 .title {
-  margin-top: var(--margin-large);
-  margin-bottom: var(--margin);
+  margin-top: var(--margin-xl);
+  margin-bottom: var(--margin-xs);
   font-weight: 500;
   font-size: var(--font-size-h1);
   line-height: 1.1111111;
+}
+
+.category-info {
+  margin: 0;
+  margin-bottom: var(--margin-large);
 }
 
 .section-projects {
