@@ -34,10 +34,11 @@
 
 html {
   --font-sans: 'Raleway', sans-serif;
+  --font-cursive: "Pacifico", cursive;
   --font-size: 1rem;
-  --font-size-small: 25px;
-  --font-size-xs: 17.5px;
-  --font-size-xxs: 11px;
+  --font-size-s: 25px;
+  --font-size-xs: 1.1rem;
+  --font-size-xxs: 0.8rem;
   --font-size-h1: 2.25em;
   --padding: 20px;
   --padding-small: 10px;
@@ -45,10 +46,10 @@ html {
   --padding-xxs: 2.5px;
   --margin: 20px;
   --margin-large: 40px;
-  --margin-xl: 45px;
+  --margin-xl: 50px;
   --margin-small: 10px;
   --margin-xs: 7.5px;
-  --border-radius: 0.3em;
+  --border-radius: 0.3rem;
   --footer-negative-margin: -1px;
   font-family: var(--font-sans);
   font-size: var(--font-size);
@@ -84,6 +85,47 @@ a .svg-icon {
 s {
   text-decoration-color: var(--highlight);
 }
+
+.design-text {
+  position: relative;
+  font-family: var(--font-cursive);
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  color: var(--text); 
+  border: none;
+}
+
+.design-text:hover {
+  background-clip: text;
+  background-image: repeating-linear-gradient(90deg, #14ffe9, #ffc800, #ff00e0, #14ffe9);
+  background-size: 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: designTextAnimation 4s linear infinite;
+  border: none;
+}
+
+.design-text:hover::after {
+  content: ' ↗';  
+  color: inherit; 
+  -webkit-text-fill-color: var(--text);
+}
+
+@keyframes designTextAnimation {
+  0% {
+    background-position: 0% 50%;
+}
+
+50% {
+    background-position: 100% 100%;
+}
+
+100% {
+    background-position: 0% 50%;
+}
+}
+
 
 .email {
   cursor: pointer;
@@ -181,13 +223,13 @@ blockquote::before {
 }
 
 #logo-box {
-  height: 1.5em;
   width: 1.5em;
+  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: var(--margin);
-  border: none;
+  border: none;  
 }
 
 .title {
@@ -209,6 +251,7 @@ blockquote::before {
   -ms-overflow-style: none;
   scrollbar-width: none;
   cursor: grab;
+  gap: var(--margin);
 }
 
 .section-projects::-webkit-scrollbar {
@@ -218,6 +261,7 @@ blockquote::before {
 .card {
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
+  cursor: pointer;
 }
 
 .card:hover {
@@ -233,10 +277,30 @@ blockquote::before {
   height: 21em;
   width: 13.5em;
   min-width: 13.5em;
-  margin-right: var(--margin);
   padding: var(--padding);
   scroll-snap-align: center;
+  position: relative;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  overflow: clip;
 }
+
+.project-image {
+  position: absolute;
+  bottom: -10%;
+  left: var(--margin);
+  height: 50%;
+  width: auto;
+  filter: drop-shadow(0 0 0.05rem var(--subtle));
+  transition: bottom 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+ .project-card:hover .project-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+} 
 
 .project-card .title {
   font-size: var(--font-size-xs);
@@ -246,6 +310,7 @@ blockquote::before {
 .project-card .brief {
   margin-top: var(--margin-small);
   color: var(--subtle);
+  font-size: 0.8rem;
 }
 
 .project-buttons-box,
@@ -273,12 +338,13 @@ blockquote::before {
   align-items: center;
   width: fit-content;
   height: 100%;
-  margin-right: var(--margin);
+  margin-right: var(--margin);  
 }
 
 .nav-icon {
   width: 1.25em;
-  height: 1.25em;
+  aspect-ratio: 1;
+  transition: scale 0.3s ease-in-out;
 }
 
 .nav-icon-bg {
@@ -291,14 +357,15 @@ blockquote::before {
   border-radius: 50%;
   background-color: transparent;
   margin: 2px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   padding: var(--padding-small);
 }
 
+.nav-icon-bg:hover > img {
+  transform: scale(1.1);
+}
+
 #header-banner {
-  margin: var(--margin-small);
-  margin-left: auto;
-  margin-right: auto;
   border-radius: var(--border-radius);
   width: 100%;
 }

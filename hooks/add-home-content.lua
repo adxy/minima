@@ -39,6 +39,8 @@ local projects_table = {
 			tags = { "NextJs", "CSS", "Socket.io", "NodeJs", "Express", "EC2" },
 			link = "https://chesskhelo.in",
 			code = "https://github.com/adxy/chesskhelo.in",
+			image = "chesskhelo.png",
+			path = "chesskhelo",
 		},
 		{
 			title = "Minima",
@@ -46,13 +48,17 @@ local projects_table = {
 			tags = { "VanillaJs", "CSS", "Parcel" },
 			link = "https://adxy.dev",
 			code = "https://github.com/adxy/minima",
+			image = "minima.png",
+			path = "minima",
 		},
 		{
 			title = "Whattime.live",
-			brief = "Coming Soon. Trying to build a legit product. ETA April.",
+			brief = "Coming Soon.",
 			tags = { "NextJs", "NodeJs", "MongoDB" },
 			link = "#",
 			code = "#",
+			image = "whattime.live.png",
+			path = "whattime.live",
 		},
 	},
 }
