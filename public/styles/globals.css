@@ -11,6 +11,7 @@
   --text: #414243;
   --border-color: #b0aeae;
   --highlight: #D64933;
+  --copied: #027769;
   --footer-bg: #cecdcd;
   --moon-display: none;
   --sun-display: block;
@@ -26,6 +27,7 @@
   --text: #ededed;
   --border-color: #2a2929;
   --highlight: #318CE7;
+  --copied: #00A693;
   --footer-bg: #1e1c1c;
   --moon-display: block;
   --sun-display: none;
@@ -450,6 +452,67 @@ hr {
   margin: var(--margin-small);
   color: var(--subtle);
 }
+
+.contact-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80dvh;
+  gap: 1rem;
+  text-align: center;
+  flex-wrap: wrap-reverse;
+}
+
+.contact-parent .brief {
+  color: var(--subtle);
+}
+
+.contact-parent .email {
+  font-size: 2.5rem;
+  word-break: break-word;
+  
+}
+
+.contact-parent .social {
+  display: flex;
+  gap: var(--padding);
+}
+
+.contact-parent .social > p {
+  font-size: var(--font-size-xxs);
+  background-color: var(--border-color);
+  padding: var(--padding-xs) var(--padding);
+  border-radius: var(--border-radius);
+}
+
+#copy-email {
+  position: relative;
+}
+
+#copy-email::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 20px;
+  top: -100%;
+  aspect-ratio: 1;
+  background-image: url(/images/curly-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+}
+
+.copied {
+  color: var(--copied) !important;
+  border: none !important;
+}
+
+.copied:hover {
+  color: var(--copied) !important;
+}
+
 
 #plum-container {
   position: fixed;

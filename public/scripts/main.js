@@ -1,12 +1,12 @@
 const setOrToggleTheme = (event) => {
-  let selectedTheme = localStorage.getItem("theme");  
+  let selectedTheme = localStorage.getItem("theme");
 
-  if(!event){
+  if (!event) {
     document.documentElement.setAttribute("data-color-mode", selectedTheme === "light" ? "light" : "dark");
     localStorage.setItem("theme", selectedTheme === "light" ? "light" : "dark");
     return
-  }  
-  
+  }
+
 
   const isDark = selectedTheme === "dark" ? true : false;
   const isAppearanceTransition = document.startViewTransition
@@ -27,7 +27,7 @@ const setOrToggleTheme = (event) => {
 
   const transition = document.startViewTransition(async () => {
     document.documentElement.setAttribute("data-color-mode", selectedTheme === "dark" ? "light" : "dark");
-    localStorage.setItem("theme", selectedTheme === "dark" ? "light" : "dark");    
+    localStorage.setItem("theme", selectedTheme === "dark" ? "light" : "dark");
   })
   transition.ready
     .then(() => {
@@ -74,3 +74,17 @@ const resizeObserver = new ResizeObserver((entries) => {
 
 resizeObserver.observe(document.getElementById("crowd-canvas"));
 setOrToggleTheme()
+
+// email copy functionality
+const emailDiv = document.querySelector("#copy-email");
+const email = "theadxy@gmail.com"
+const resetText = "Copy Email"
+emailDiv.addEventListener("pointerdown", () => {
+  navigator.clipboard.writeText(email);
+  emailDiv.innerText = "Copied. ✓";
+  emailDiv.classList.add("copied");
+  setTimeout(() => {
+    emailDiv.innerText = resetText;
+    emailDiv.classList.remove("copied");
+  }, 3500);
+});

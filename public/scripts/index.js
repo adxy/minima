@@ -28,16 +28,3 @@ slider.addEventListener("mousemove", (e) => {
 slider.addEventListener("mousedown", startDragging, false);
 slider.addEventListener("mouseup", stopDragging, false);
 slider.addEventListener("mouseleave", stopDragging, false);
-
-// email copy functionality
-const emailDiv = document.querySelector(".email");
-const email = "theadxy@gmail.com"
-emailDiv.addEventListener("pointerdown", () => {
-    navigator.clipboard.writeText(email);
-    emailDiv.innerText = "copied to clipboard. ✓";
-    emailDiv.classList.add("copied");
-    setTimeout(() => {
-        emailDiv.innerText = email;
-        emailDiv.classList.remove("copied");
-    }, 2000);
-});
