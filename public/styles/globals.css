@@ -249,6 +249,10 @@ blockquote::before {
   gap: var(--margin);
 }
 
+.project-card:last-child {
+  margin-right: var(--margin);
+}
+
 .section-projects::-webkit-scrollbar {
   display: none;
 }
