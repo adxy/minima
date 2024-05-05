@@ -101,7 +101,7 @@ s {
   font-family: var(--font-cursive);
   font-weight: 400;
   font-style: normal;
-  color: var(--text); 
+  color: var(--subtle) !important; 
   border: none;
 }
 
@@ -118,7 +118,7 @@ s {
 .design-text:hover::after {
   content: ' ↗';  
   color: inherit; 
-  -webkit-text-fill-color: var(--text);
+  -webkit-text-fill-color: var(--subtle);
 }
 
 @keyframes designTextAnimation {
@@ -238,6 +238,7 @@ blockquote::before {
 .category-info {
   margin: 0;
   margin-bottom: var(--margin-large);
+  color: var(--subtle);
 }
 
 .section-projects {
@@ -450,7 +451,7 @@ hr {
 
 .description {
   margin: var(--margin-small);
-  color: var(--subtle);
+  color: var(--text);
 }
 
 .contact-parent {
