@@ -20,19 +20,16 @@
     hence you'll not find a lot of irrelevant OS contributions.</p>
 <section class="section-os" id="open-source">
     {{ range .Data.static.openSource }}
-    <div class="os-card card">
-        <a href="{{ .prLink }}" target="_blank">
-            <p class="description">{{ .title }}</p>
-            <div class="languages">
-                {{ range .languages }}
-                <div class="tags">
-                    {{ . }}
-                </div>
-                {{ end }}
+    <a class="os-card card" href="{{ .prLink }}" target="_blank">
+        <p class="description">{{ .title }}</p>
+        <div class="languages">
+            {{ range .languages }}
+            <div class="tags">
+                {{ . }}
             </div>
-        </a>
-
-    </div>
+            {{ end }}
+        </div>
+    </a>
     {{ end }}
 </section>
 <h1 class="title">Writings</h1>
