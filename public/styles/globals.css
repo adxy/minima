@@ -42,9 +42,9 @@ html {
   --font-sans: 'Raleway', sans-serif;
   --font-cursive: "Pacifico", cursive;
   --font-size: 1rem;
-  --font-size-s: 25px;
-  --font-size-xs: 1.1rem;
-  --font-size-xxs: 0.8rem;
+  --font-size-s: 0.8rem;  
+  --font-size-xxs: 0.7rem;
+  --font-size-l: 1.1rem;
   --font-size-h1: 2.25em;
   --padding: 20px;
   --padding-small: 10px;
@@ -258,14 +258,13 @@ blockquote::before {
 }
 
 .card {
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
 }
 
 .card:hover {
-  box-shadow: 1.5px 1.5px var(--highlight);
-  border-bottom: 2px solid var(--highlight);
-  border-right: 2px solid var(--highlight);
+  background-color: rgba(174, 175, 176, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .project-card {
@@ -278,7 +277,6 @@ blockquote::before {
   padding: var(--padding);
   scroll-snap-align: center;
   position: relative;
-  border: 2px solid var(--border-color);
   border-radius: var(--border-radius); 
   overflow: clip;
 }
@@ -300,7 +298,7 @@ blockquote::before {
 } 
 
 .project-card .title {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-l);
   margin: 0;
 }
 
@@ -434,6 +432,9 @@ hr {
 .languages {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  padding: var(--padding-small);
+  padding-top: var(--padding-xs);
 }
 
 .tags {
@@ -443,9 +444,7 @@ hr {
   border-radius: 16px;
   padding: var(--padding-xxs) var(--padding-small);
   border: 1px solid var(--highlight);
-  width: fit-content;
-  margin: var(--margin-small);
-  margin-top: 0;
+  width: fit-content; 
 }
 
 .svg-icon {
@@ -486,7 +485,7 @@ hr {
 }
 
 .contact-parent .social > p {
-  font-size: var(--font-size-xxs);
+  font-size: var(--font-size-s);
   background-color: var(--border-color);
   padding: var(--padding-xs) var(--padding);
   border-radius: var(--border-radius);

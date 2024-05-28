@@ -5,7 +5,7 @@
 <p class="category-info">a collection of my projects.</p>
 <section class="section-projects" id="projects">
     {{ range .Data.static.projects }}
-    <a class="project-card" href="/projects/{{ .path }}">
+    <a class="project-card card" href="/projects/{{ .path }}">
         <img class="project-image" src="/images/projects/{{ .image }}" alt="{{ .image }} project image"></img>
         <div>
             <p class="title">{{ .title }}</p>
