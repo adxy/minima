@@ -96,6 +96,16 @@ s {
   text-decoration-color: var(--highlight);
 }
 
+.go-back-button {
+  color: var(--subtle) !important;
+  border: none !important; 
+  transition: color 0.3s ease-in-out;
+}
+
+.go-back-button:hover {
+  color: var(--text) !important;
+}
+
 .design-text {
   position: relative;
   font-family: var(--font-cursive);
