@@ -234,6 +234,11 @@ blockquote::before {
   justify-content: center;
   margin-left: var(--margin);
   border: none;  
+  transition: transform 0.5s ease-in-out;
+}
+
+#logo-box:hover {
+  transform: rotate(360deg) scale(1.2);
 }
 
 .title {
