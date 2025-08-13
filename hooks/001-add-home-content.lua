@@ -53,7 +53,7 @@ local projects_table = {
 		},
 		{
 			title = "Xtension",
-			brief = "A chrome extension that blocks twitter videos while keeping a view video button.",
+			brief = "A chrome extension that blocks Twitter/X videos while keeping a view video button.",
 			tags = { "VanillaJs", "CSS", "Chrome Extension" },
 			link = "https://chromewebstore.google.com/detail/xtwitter-feed-video-block/khdpmhkldgcomdhoclgcbhkaeeilaedm",
 			code = "https://github.com/adxy/xtension",

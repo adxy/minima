@@ -35,7 +35,6 @@
   --cursor-default: url("/images/cursors/dark-mode/default.svg") 5 5, auto;
   --cursor-link: url("/images/cursors/dark-mode/link.svg") 10 10, pointer;
   --cursor-external-link: url("/images/cursors/dark-mode/external-link.svg") 10 10, pointer;
-  ;
 }
 
 html {
