@@ -52,6 +52,15 @@ local projects_table = {
 			path = "minima",
 		},
 		{
+			title = "Xtension",
+			brief = "A chrome extension that blocks twitter videos while keeping a view video button.",
+			tags = { "VanillaJs", "CSS", "Chrome Extension" },
+			link = "https://chromewebstore.google.com/detail/xtwitter-feed-video-block/khdpmhkldgcomdhoclgcbhkaeeilaedm",
+			code = "https://github.com/adxy/xtension",
+			image = "xtension.png",
+			path = "xtension",
+		},
+		{
 			title = "Whattime.live",
 			brief = "Coming Soon.",
 			tags = { "NextJs", "NodeJs", "MongoDB" },
