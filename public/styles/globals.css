@@ -6,7 +6,8 @@
 }
 
 :root[data-color-mode="light"] {
-  --bg: #FAF9F6;
+  --bg: white;
+  --bg-pattern-color: #e2e8f0;
   --subtle: #686767;
   --text: #414243;
   --border-color: #b0aeae;
@@ -23,6 +24,7 @@
 
 :root[data-color-mode="dark"] {
   --bg: #050505;
+  --bg-pattern-color: #2a2929;
   --subtle: #888888;
   --text: #ededed;
   --border-color: #2a2929;
@@ -59,16 +61,36 @@ html {
   font-family: var(--font-sans);
   font-size: var(--font-size);
   line-height: 1.5;
-  background: var(--bg);
   color: var(--text);
   min-height: 100%;
   position: relative;
+  background: var(--bg);
+}
+
+html::before {
+  /* This is the background checkerd pattern */
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100dvh;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+   background-image:
+    linear-gradient(to right, var(--bg-pattern-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-pattern-color) 1px, transparent 1px); 
+  background-size: 1.5rem 1.5rem;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+  max-height: 100dvh;
+  z-index: -1;
 }
 
 body,
 html {
   height: auto;
   cursor: var(--cursor-default);
+  overscroll-behavior: none;
 }
 
 a {
@@ -530,13 +552,6 @@ hr {
 
 .copied:hover {
   color: var(--copied) !important;
-}
-
-
-#plum-container {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
 }
 
 @media print {
