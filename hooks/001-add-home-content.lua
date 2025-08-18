@@ -39,7 +39,7 @@ local projects_table = {
 			tags = { "NextJs", "CSS", "Socket.io", "NodeJs", "Express", "EC2" },
 			link = "https://chesskhelo.in",
 			code = "https://github.com/adxy/chesskhelo.in",
-			image = "chesskhelo.png",
+			image = "https://media.adxy.dev/website/images/projects/chesskhelo.webp",
 			path = "chesskhelo",
 		},
 		{
@@ -48,7 +48,7 @@ local projects_table = {
 			tags = { "VanillaJs", "CSS", "Parcel" },
 			link = "https://adxy.dev",
 			code = "https://github.com/adxy/minima",
-			image = "minima.png",
+			image = "https://media.adxy.dev/website/images/projects/minima.webp",
 			path = "minima",
 		},
 		{
@@ -57,7 +57,7 @@ local projects_table = {
 			tags = { "VanillaJs", "CSS", "Chrome Extension" },
 			link = "https://chromewebstore.google.com/detail/xtwitter-feed-video-block/khdpmhkldgcomdhoclgcbhkaeeilaedm",
 			code = "https://github.com/adxy/xtension",
-			image = "xtension.png",
+			image = "https://media.adxy.dev/website/images/projects/xtension.webp",
 			path = "xtension",
 		},
 		{
@@ -66,7 +66,7 @@ local projects_table = {
 			tags = { "NextJs", "NodeJs", "MongoDB" },
 			link = "#",
 			code = "#",
-			image = "whattime.live.png",
+			image = "https://media.adxy.dev/website/images/projects/whatime.live.webp",
 			path = "whattime.live",
 		},
 	},

@@ -1,6 +1,6 @@
 // crowd
 const config = {
-  src: "https://cbin.b-cdn.net/open-peeps-sheet.avif",
+  src: "https://media.adxy.dev/website/images/open-peeps-sheet.avif",
   rows: 15,
   cols: 7,
 };
