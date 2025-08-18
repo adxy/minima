@@ -4,16 +4,20 @@ const isReducedMotion = window.matchMedia(
 
 const isAppearanceTransition = document.startViewTransition && !isReducedMotion;
 
-const themeSwitchAudio = new Audio("/audio/fast-swish-transition.mp3");
-const themeSwitchAudioInstant = new Audio("/audio/click.wav");
+const themeSwitchAudio = new Howl({
+  src: ["/audio/fast-swish-transition.mp3"],
+  preload: isAppearanceTransition,
+  volume: 1,
+});
 
-themeSwitchAudio.preload = isAppearanceTransition ? "auto" : "none";
-themeSwitchAudio.currentTime = 0.3;
-themeSwitchAudio.volume = 1;
+const themeSwitchAudioInstant = new Howl({
+  src: ["/audio/click.wav"],
+  preload: !isAppearanceTransition,
+  volume: 1,
+});
 
-themeSwitchAudioInstant.preload = isAppearanceTransition ? "none" : "auto";
-themeSwitchAudioInstant.currentTime = 0;
-themeSwitchAudioInstant.volume = 1;
+// Debounce to avoid double-trigger on some inputs
+let lastThemeToggleAtMs = 0;
 
 const setOrToggleTheme = (event) => {
   let selectedTheme = localStorage.getItem("theme");
@@ -36,11 +40,10 @@ const setOrToggleTheme = (event) => {
     );
     localStorage.setItem("theme", selectedTheme === "dark" ? "light" : "dark");
 
-    // different audio for instant theme switch without animation
-    try {
-      themeSwitchAudioInstant.currentTime = 0;
-      themeSwitchAudioInstant.play().catch(() => {});
-    } catch (_) {}
+    // Play instant audio
+    themeSwitchAudioInstant.stop();
+    themeSwitchAudioInstant.seek(0);
+    themeSwitchAudioInstant.play();
     return;
   }
 
@@ -60,11 +63,10 @@ const setOrToggleTheme = (event) => {
   });
   transition.ready.then(() => {
     // Play audio when the transition is about to animate
-    try {
-      themeSwitchAudio.currentTime = 0.3;
+    themeSwitchAudio.stop();
+    themeSwitchAudio.seek(0.3);
+    themeSwitchAudio.play();
 
-      themeSwitchAudio.play().catch(() => {});
-    } catch (_) {}
     const clipPath = [
       `circle(0px at ${x}px ${y}px)`,
       `circle(${endRadius}px at ${x}px ${y}px)`,
@@ -84,9 +86,13 @@ const setOrToggleTheme = (event) => {
   });
 };
 
-document
-  .getElementById("theme-button")
-  .addEventListener("pointerdown", (e) => setOrToggleTheme(e));
+document.getElementById("theme-button").addEventListener("pointerdown", (e) => {
+  if (e.pointerType === "mouse" && e.button !== 0) return;
+  const now = performance.now();
+  if (now - lastThemeToggleAtMs < 300) return;
+  lastThemeToggleAtMs = now;
+  setOrToggleTheme(e);
+});
 
 // manage footer -ve margin-top
 const resizeObserver = new ResizeObserver((entries) => {
