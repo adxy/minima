@@ -530,6 +530,7 @@ hr {
 
 #copy-email {
   position: relative;
+  min-width: 5.3rem;
 }
 
 #copy-email::before {

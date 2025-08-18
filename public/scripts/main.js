@@ -115,16 +115,30 @@ const resizeObserver = new ResizeObserver((entries) => {
 resizeObserver.observe(document.getElementById("crowd-canvas"));
 setOrToggleTheme();
 
-// email copy functionality
+const clickAudio = new Howl({
+  src: ["/audio/subtle-click.mp3"],
+  preload: true,
+  volume: 1,
+});
 const emailDiv = document.querySelector("#copy-email");
 const email = "theadxy@gmail.com";
 const resetText = "Copy Email";
+let shouldPlay = true;
+
 emailDiv.addEventListener("pointerdown", () => {
+  if (shouldPlay) {
+    shouldPlay = false;
+    clickAudio.stop();
+    clickAudio.seek(0);
+    clickAudio.play();
+  }
+
   navigator.clipboard.writeText(email);
   emailDiv.innerText = "Copied. ✓";
   emailDiv.classList.add("copied");
   setTimeout(() => {
     emailDiv.innerText = resetText;
     emailDiv.classList.remove("copied");
+    shouldPlay = true;
   }, 3500);
 });
