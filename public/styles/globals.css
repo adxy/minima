@@ -7,7 +7,7 @@
 
 :root[data-color-mode="light"] {
   --bg: white;
-  --bg-pattern-color: #e2e8f0;
+  --bg-pattern-color: #eef0f3;
   --subtle: #686767;
   --text: #414243;
   --border-color: #b0aeae;
@@ -20,6 +20,7 @@
   --cursor-default: url("/images/cursors/light-mode/default.svg"), auto;
   --cursor-link: url("/images/cursors/light-mode/link.svg") 10 10, pointer;
   --cursor-external-link: url("/images/cursors/light-mode/external-link.svg") 10 10, pointer;
+  --design-gradient: repeating-linear-gradient(90deg, #6366f1, #f59e0b, #ec4899, #6366f1);
 }
 
 :root[data-color-mode="dark"] {
@@ -37,6 +38,7 @@
   --cursor-default: url("/images/cursors/dark-mode/default.svg") 5 5, auto;
   --cursor-link: url("/images/cursors/dark-mode/link.svg") 10 10, pointer;
   --cursor-external-link: url("/images/cursors/dark-mode/external-link.svg") 10 10, pointer;
+  --design-gradient: repeating-linear-gradient(90deg, #b3acf2, #f2c2b3, #f2b3c2, #b3acf2);
 }
 
 html {
@@ -69,6 +71,10 @@ html {
 
 html::before {
   /* This is the background checkerd pattern */
+  --mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+  --pattern-size: 1.5rem;
+  --line-width: 1px;
+
   content: "";
   position: absolute;
   inset: 0;
@@ -77,13 +83,13 @@ html::before {
   z-index: 0;
   pointer-events: none;
    background-image:
-    linear-gradient(to right, var(--bg-pattern-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--bg-pattern-color) 1px, transparent 1px); 
-  background-size: 1.5rem 1.5rem;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%);
+    linear-gradient(to right, var(--bg-pattern-color) var(--line-width), transparent var(--line-width)),
+    linear-gradient(to bottom, var(--bg-pattern-color) var(--line-width), transparent var(--line-width)); 
+  background-size: var(--pattern-size) var(--pattern-size);
+  -webkit-mask-image: var(--mask-image);
+  mask-image: var(--mask-image);
   max-height: 100dvh;
-  z-index: -1;
+  z-index: -1000;
 }
 
 body,
@@ -134,11 +140,12 @@ s {
   font-style: normal;
   color: var(--subtle) !important; 
   border: none;
+  cursor: var(--cursor-link);
 }
 
 .design-text:hover {
   background-clip: text;
-  background-image: repeating-linear-gradient(90deg, #14ffe9, #ffc800, #ff00e0, #14ffe9);
+  background-image: var(--design-gradient);
   background-size: 50%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -146,10 +153,21 @@ s {
   border: none;
 }
 
-.design-text:hover::after {
-  content: ' ↗';  
-  color: inherit; 
-  -webkit-text-fill-color: var(--subtle);
+#micro-interactions {
+  display: inline-block;
+  transition: transform 0.3s ease, font-size 0.3s ease;
+  cursor: var(--cursor-link);
+}
+
+.micro-interactions-text-micro {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+}
+
+#micro-interactions:hover .micro-interactions-text-micro {
+  transform: scale(0.8);
+  font-weight: 600;
+  transition: transform 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 }
 
 @keyframes designTextAnimation {
