@@ -16,8 +16,25 @@
     <br>
     Outside of work, I’m training to run my <b><a href="/writings/road-to-my-first-marathon">first marathon in January 2026.</a></b>
 </p>
-<h1 class="title">Projects</h1>
-<p class="category-info">a collection of my projects.</p>
+
+<div class="projects-header">
+    <div>
+        <h1 class="title">Projects</h1>
+        <p class="category-info">a collection of my projects.</p>
+    </div>
+    <div class="scroll-buttons">
+        <button class="scroll-btn scroll-btn-left" id="scrollLeft" aria-label="Scroll left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+        </button>
+        <button class="scroll-btn scroll-btn-right" id="scrollRight" aria-label="Scroll right">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m9 18 6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
+</div>
 <section class="section-projects" id="projects">
     {{ range .Data.static.projects }}
     <a class="project-card card" href="/projects/{{ .path }}">

@@ -303,6 +303,57 @@ blockquote::before {
   gap: var(--margin);
 }
 
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--margin-large);
+}
+
+.projects-header .category-info {
+  margin-bottom: 0;
+}
+
+.scroll-buttons {
+  display: flex;
+  gap: var(--padding-xs);
+}
+
+.scroll-btn {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 1;
+  padding: 0;
+}
+
+.scroll-btn:hover {
+  opacity: 1;
+  background: rgba(174, 175, 176, 0.1);
+  transform: scale(1.05);
+  border-color: var(--highlight);
+}
+
+.scroll-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.scroll-btn:disabled:hover {
+  background: var(--bg);
+  transform: none;
+  border-color: var(--border-color);
+}
+
 .project-card:last-child {
   margin-right: var(--margin);
 }
@@ -586,6 +637,10 @@ hr {
 }
 
 @media only screen and (max-width: 800px) {
+  .scroll-buttons {
+    display: none;
+  }
+  
   .section-projects {
     margin: 0 calc(-1* var(--margin));
   }
