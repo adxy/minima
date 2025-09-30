@@ -1,13 +1,23 @@
-<h1 class="title">Namasté, I'm <s>Adarsh Bhadauria</s> adxy</h1>
-<p class="about-me-text"> 
-    I’m <b>passionate about solving problems</b> through code and <span class="design-text">design</span>, with a strong belief that 
-    <em>minimal and thoughtful <span class="design-text">design</span></em> can make a big difference.  
-    I enjoy working on <b>engineering challenges</b>, breaking them down into simpler parts, 
-    and finding practical solutions.  
-    <b>Attention to detail</b> is my forte. And, therefore, I am also a fan of <em><span id="micro-interactions"><span class="micro-interactions-text-micro"> micro</span> <span class="micro-interactions-text-interactions">interactions</span></span></em>.
-    I love to learn</em>—constantly picking up new skills and improving along the way.  
-    Outside of work, I’m training to run my <b><a href="/writings/road-to-my-first-marathon">first marathon in January 2026.</a></b>
-</p>
+<section class="section-about">
+    <h1 class="title">Namasté, I'm <s>Adarsh Bhadauria</s> adxy</h1>
+    <p class="about-me-text"> 
+        I’m <strong>passionate about solving problems</strong> through code and <span class="design-text">design</span>, with a strong belief that 
+        <em>minimal and thoughtful <span class="design-text">design</span></em> can make a big difference.  
+        I enjoy working on <strong>engineering challenges</strong>, breaking them down into simpler parts, 
+        and finding practical solutions.    
+        <b>Attention to detail</b> is my forte. And, therefore, I am also a fan of <em><span id="micro-interactions"><span class="micro-interactions-text-micro"> micro</span> <span class="micro-interactions-text-interactions">interactions</span></span></em>.
+        I love to learn</em>—constantly picking up new skills and improving along the way. 
+        <br><br> 
+        Outside of work, I’m training to run my <a href="/writings/road-to-my-first-marathon">first marathon in January 2026.</a>
+    </p>
+    <div class="about-tags-container">
+        <div class="about-tag">Head of Tech @ ChessBase India</div>
+        <div class="about-tag">⚲ New Delhi, India</div>
+        <div class="about-tag">he/him</div>
+    </div>
+    <span id="side-tag">Written in VanillaJs + CSS + HTML</span>
+</section>
+<div class="section-divider"></div>
 
 <div class="projects-header">
     <div>
@@ -27,6 +37,7 @@
         </button>
     </div>
 </div>
+
 <section class="section-projects" id="projects">
     {{ range .Data.static.projects }}
     <a class="project-card card" href="/projects/{{ .path }}">
@@ -38,6 +49,9 @@
     </a>
     {{ end }}
 </section>
+
+<div class="section-divider"></div>
+
 <h1 class="title">Open Source</h1>
 <p class="category-info"> my OS contributions are to projects I actually use & if that project needs a fix or
     improvement,
@@ -56,6 +70,9 @@
     </a>
     {{ end }}
 </section>
+
+<div class="section-divider"></div>
+
 <h1 class="title">Writings</h1>
 <p class="category-info"> a collection of technical articles and basically anything exciting that I am learning & want
     to share with
@@ -65,8 +82,8 @@
         {{range .Data.writing.pages}}
         <a href="{{print  " /writings/" .slug}}">
             <li class="writings-card card">
-                <div class="description">{{.title}}</div>
-                <div class="date">{{.formatteddate}}</div>
+                <span class="date">{{.formatteddate}}</span>
+                <p class="description">{{.title}}</p>
             </li>
         </a>
         {{end}}

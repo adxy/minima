@@ -66,31 +66,41 @@
             <img class="svg-icon" src="/images/adxy-logo.svg" alt="adxy logo"></img>
         </a>
         <nav class="nav-bar">
+            <a class="nav-icon-bg home" href="/" data-tooltip="Home" data-tooltip-location="bottom">
+                <img class="nav-icon" src="/images/home.svg" alt="home icon"></img>
+            </a>
             <a class="nav-icon-bg contact" href="/contact" data-tooltip="Contact" data-tooltip-location="bottom">
-                <img class="nav-icon" src="/images/contact.svg" alt="twitter icon">
+                <img class="nav-icon" src="/images/contact.svg" alt="twitter icon"></img>
             </a>
             <a class="nav-icon-bg github" href="https://github.com/adxy" target="_blank" data-tooltip="Github"
                 data-tooltip-location="bottom">
-                <img class="nav-icon" src="/images/github.svg" alt="github icon">
+                <img class="nav-icon" src="/images/github.svg" alt="github icon"></img>
             </a>
             <a class="nav-icon-bg" href="/writings" data-tooltip="Writings" data-tooltip-location="bottom">
-                <img class="nav-icon" src="/images/writings.svg" alt="challenges icon">
+                <img class="nav-icon" src="/images/writings.svg" alt="challenges icon"></img>
             </a>
-            <a class="nav-icon-bg theme" id="theme-button" data-tooltip="Toggle Theme" data-tooltip-location="left">
-                <img class="theme-button nav-icon" id="moon-button" src="/images/moon.svg" alt="moon-button">
-                <img class="theme-button nav-icon" id="sun-button" src="/images/sun.svg" alt="sun-button">
+            <a class="nav-icon-bg theme" id="theme-button" data-tooltip="Toggle Theme" data-tooltip-location="bottom">
+                <img class="theme-button nav-icon" id="moon-button" src="/images/moon.svg" alt="moon-button"></img>
+                <img class="theme-button nav-icon" id="sun-button" src="/images/sun.svg" alt="sun-button"></img>
             </a>
         </nav>
+        
     </header>
-    <div id="dots"></div>
+    <div class="section-divider-top-container">
+        <div class="section-divider"></div>
+    </div>
+
     <main class="main-container">
         <div class="parent-container slide-enter-content">
             {{.Content}}
         </div>
     </main>
+
+    <div class="section-divider" id="section-divider-footer"></div>
+
     <canvas id="crowd-canvas"></canvas>
     <footer>
-        <p>© Adarsh Bhadauria 2024 - 2025 |&nbsp;</p>
+        <p>© Adarsh Bhadauria 2025 - 2026 |&nbsp;</p>
         <a href="https://github.com/adxy/minima" target="_blank">
             Code
         </a>
