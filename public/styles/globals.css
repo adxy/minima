@@ -322,11 +322,11 @@ blockquote::before {
   font-size: var(--font-size-s);
   background-color: var(--bg);
   padding: var(--padding-xxs) var(--padding-small);
-  border: var(--border-width) dashed var(--border-color);
+  border: var(--border-width) dotted var(--border-color);
 }
 
 .about-tag:first-child {
-  border: var(--border-width) dashed var(--highlight);
+  border: var(--border-width) dotted var(--highlight);
   background-color: color-mix(in srgb, var(--highlight) 10%, transparent);
   color: var(--highlight);
 }
@@ -393,6 +393,11 @@ blockquote::before {
   background: var(--bg);
   transform: none;
   border-color: var(--border-color);
+}
+
+.scroll-btn:not(:disabled):active {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s ease-out !important;
 }
 
 .project-card:last-child {
@@ -489,14 +494,23 @@ nav > a:hover {
   height: 100%;
   background-color: transparent;
   margin: 2px;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease, background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   padding: var(--padding-small);
   text-decoration: none !important;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .nav-icon-bg:hover > img {
   transform: scale(1.1);
 }
+
+.nav-icon-bg:active {
+  background-color: color-mix(in srgb, var(--highlight) 15%, transparent);
+  transition: background-color 0s;
+}
+
 
 #header-banner {
   border-radius: var(--border-radius);
@@ -504,14 +518,12 @@ nav > a:hover {
 }
 
 header {
-  padding:  1.2rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 750px;
   min-width: 280px;
   margin: 1rem auto 0;
-  height: 45px;
   border: var(--border-width) solid var(--border-color);
   background-color: var(--bg);
   position: sticky;
@@ -640,7 +652,7 @@ a.os-card.card:hover {
   color: var(--highlight);
   background-color: color-mix(in srgb, var(--highlight) 10%, transparent);
   padding: var(--padding-xxs) var(--padding-small);
-  border: var(--border-width) dashed var(--highlight);
+  border: var(--border-width) dotted var(--highlight);
   width: fit-content; 
 }
 
