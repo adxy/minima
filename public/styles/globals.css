@@ -271,19 +271,22 @@ blockquote::before {
 }
 
 #logo-box {
-  width: 1.5em;
+  height: 100%;
   aspect-ratio: 1;
+  padding: var(--padding-small) 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: var(--margin);
+  margin-left: var(--margin-small);
   border: none;  
-  transition: transform 0.2s ease-out;
   overflow: clip;
+  border-radius: 50%;
 }
 
-#logo-box:hover {
-  transform: scale(1.1);
+#logo-box:active {
+  background-color: color-mix(in srgb, var(--highlight) 15%, transparent);
+  transition: all 0s;
+  transform: scale(0.95);
 }
 
 #logo-box > img {
@@ -385,7 +388,6 @@ blockquote::before {
 .scroll-btn:hover {
   opacity: 1;
   background: rgba(174, 175, 176, 0.1);
-  transform: scale(1.05);
   border-color: var(--highlight);
 }
 
@@ -403,7 +405,7 @@ blockquote::before {
 
 .scroll-btn:not(:disabled):active {
   transform: scale(0.95) !important;
-  transition: transform 0.1s ease-out !important;
+  transition: all 0s !important;
 }
 
 .project-card:last-child {
@@ -478,9 +480,9 @@ blockquote::before {
 }
 
 nav > a {
-    text-decoration: none;
-    border: none;
-    cursor: var(--cursor-link);
+  text-decoration: none;
+  border: none;
+  cursor: var(--cursor-link);
 }
 
 nav > a:hover {
@@ -490,7 +492,6 @@ nav > a:hover {
 .nav-icon {
   width: 1.25em;
   aspect-ratio: 1;
-  transition: scale 0.3s ease-out;
 }
 
 .nav-icon-bg {
@@ -508,15 +509,11 @@ nav > a:hover {
   border-radius: 50%;
 }
 
-.nav-icon-bg:hover > img {
-  transform: scale(1.1);
-}
-
 .nav-icon-bg:active {
   background-color: color-mix(in srgb, var(--highlight) 15%, transparent);
-  transition: background-color 0s;
+  transition: all 0s;
+  transform: scale(0.95) !important;
 }
-
 
 #header-banner {
   border-radius: var(--border-radius);
@@ -527,6 +524,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 45px;
   max-width: 750px;
   min-width: 280px;
   margin: 1rem auto 0;
