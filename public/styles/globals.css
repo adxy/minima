@@ -279,10 +279,16 @@ blockquote::before {
   margin-left: var(--margin);
   border: none;  
   transition: transform 0.2s ease-out;
+  overflow: clip;
 }
 
 #logo-box:hover {
   transform: scale(1.1);
+}
+
+#logo-box > img {
+  width: 100%;
+  height: 100%;
 }
 
 .title {
