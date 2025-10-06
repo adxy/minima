@@ -1,3 +1,14 @@
+// manage sticky header
+const header = document.querySelector("header");
+const observer = new IntersectionObserver(
+  ([e]) => {
+    header.classList.toggle("is-stuck", e.intersectionRatio < 1);
+  },
+  { threshold: [1] }
+);
+observer.observe(header);
+
+// manage theme toggle
 const isReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
@@ -115,30 +126,33 @@ const resizeObserver = new ResizeObserver((entries) => {
 resizeObserver.observe(document.getElementById("crowd-canvas"));
 setOrToggleTheme();
 
-const clickAudio = new Howl({
-  src: ["/audio/subtle-click.mp3"],
-  preload: true,
-  volume: 1,
-});
-const emailDiv = document.querySelector("#copy-email");
-const email = "theadxy@gmail.com";
-const resetText = "Copy Email";
-let shouldPlay = true;
+// manage copy email on contact page
+if (document.getElementById("copy-email")) {
+  const clickAudio = new Howl({
+    src: ["/audio/subtle-click.mp3"],
+    preload: true,
+    volume: 1,
+  });
+  const emailDiv = document.querySelector("#copy-email");
+  const email = "theadxy@gmail.com";
+  const resetText = "Copy Email";
+  let shouldPlay = true;
 
-emailDiv.addEventListener("pointerdown", () => {
-  if (shouldPlay) {
-    shouldPlay = false;
-    clickAudio.stop();
-    clickAudio.seek(0);
-    clickAudio.play();
-  }
+  emailDiv.addEventListener("pointerdown", () => {
+    if (shouldPlay) {
+      shouldPlay = false;
+      clickAudio.stop();
+      clickAudio.seek(0);
+      clickAudio.play();
+    }
 
-  navigator.clipboard.writeText(email);
-  emailDiv.innerText = "Copied. ✓";
-  emailDiv.classList.add("copied");
-  setTimeout(() => {
-    emailDiv.innerText = resetText;
-    emailDiv.classList.remove("copied");
-    shouldPlay = true;
-  }, 3500);
-});
+    navigator.clipboard.writeText(email);
+    emailDiv.innerText = "Copied. ✓";
+    emailDiv.classList.add("copied");
+    setTimeout(() => {
+      emailDiv.innerText = resetText;
+      emailDiv.classList.remove("copied");
+      shouldPlay = true;
+    }, 3500);
+  });
+}
