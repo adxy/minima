@@ -48,7 +48,7 @@ html {
   --font-sans: 'Raleway', sans-serif;
   --font-cursive: "Pacifico", cursive;
   --font-size: 1rem;
-  --font-size-s: 0.8rem;  
+  --font-size-s: 0.8rem;
   --font-size-xxs: 0.7rem;
   --font-size-l: 1.1rem;
   --font-size-h1: 2.25em;
@@ -64,6 +64,7 @@ html {
   --border-radius: 0.3rem;
   --border-width: 0.03125rem;
   --footer-negative-margin: -1px;
+  --body-width-max: 750px;
   font-family: var(--font-sans);
   font-size: var(--font-size);
   line-height: 1.5;
@@ -72,12 +73,17 @@ html {
   position: relative;
   background: var(--bg);
   letter-spacing: 0.04rem;
-}
-
-body,
-html {
+  max-width: 100%;
   height: auto;
   cursor: var(--cursor-default);
+}
+
+body {
+  height: auto;
+  cursor: var(--cursor-default);
+  max-width: min(100svw, var(--body-width-max));
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
 a {
@@ -113,10 +119,23 @@ mark {
   padding: 0 var(--padding-xxs);
 }
 
+aside.aside-container {
+  position: absolute;
+  width: 10rem;
+  left: calc(100% + var(--margin-small));
+  top: 0;
+  z-index: 1000;
+  padding: var(--padding-small);
+  background-color: var(--bg);
+  border: var(--border-width) solid var(--border-color);
+  padding: var(--padding-small);
+}
+
 /* For most modern browsers */
 ::selection {
   background-color: color-mix(in srgb, var(--highlight) 40%, transparent);
-  color: var(--text); /* Sets the selected text color to black */
+  color: var(--text);
+  /* Sets the selected text color to black */
 }
 
 /* For Firefox compatibility */
@@ -127,7 +146,7 @@ mark {
 
 .go-back-button {
   color: var(--subtle) !important;
-  border: none !important; 
+  border: none !important;
   transition: color 0.3s ease-out;
 }
 
@@ -174,15 +193,15 @@ mark {
 @keyframes designTextAnimation {
   0% {
     background-position: 0% 50%;
-}
+  }
 
-50% {
+  50% {
     background-position: 100% 100%;
-}
+  }
 
-100% {
+  100% {
     background-position: 0% 50%;
-}
+  }
 }
 
 p {
@@ -244,22 +263,23 @@ blockquote::before {
 .main-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: var(--margin-large) 0;
+  align-items: flex-start;
   min-height: calc(100vh - 20px);
   overflow-x: visible;
-  margin: 0 var(--margin);
+  padding: 0 var(--margin);
 }
 
 .parent-container {
   min-height: 100vh;
-  max-width: 750px;
-  min-width: min(100%, 750px);
+  width: 100%;
   overflow-x: visible;
   border-left: var(--border-width) solid var(--border-color);
   border-right: var(--border-width) solid var(--border-color);
-  padding: 0 1rem;
   position: relative;
+}
+
+.main-container-content {
+  width: 100%;
 }
 
 #moon-button {
@@ -278,7 +298,7 @@ blockquote::before {
   align-items: center;
   justify-content: center;
   margin-left: var(--margin-small);
-  border: none;  
+  border: none;
   overflow: clip;
   border-radius: 50%;
 }
@@ -289,7 +309,7 @@ blockquote::before {
   transform: scale(0.95);
 }
 
-#logo-box > img {
+#logo-box>img {
   width: 100%;
   height: 100%;
 }
@@ -304,11 +324,11 @@ blockquote::before {
 
 .category-info {
   margin: 0;
-  margin-bottom: var(--margin-large);
   color: var(--subtle);
 }
 
-.about-me-text, .about-me-text a {
+.about-me-text,
+.about-me-text a {
   margin: 0;
   font-size: var(--font-size);
   margin-top: var(--margin);
@@ -323,7 +343,7 @@ blockquote::before {
   border-bottom: var(--border-width) dashed var(--border-color);
   background-color: var(--bg-subtle);
   padding: var(--padding-small) 1rem;
-  margin: 0 -1rem;
+  margin: 0 calc(var(--margin) * -1);
   margin-top: var(--margin-large);
 }
 
@@ -346,18 +366,21 @@ blockquote::before {
   -ms-overflow-style: none;
   scrollbar-width: none;
   gap: var(--margin);
-  margin: 0 -1rem;
   border-top: var(--border-width) dashed var(--border-color);
   border-bottom: var(--border-width) dashed var(--border-color);
   background-color: var(--bg-subtle);
   box-sizing: content-box;
+  margin: 0 calc(var(--margin) * -1);
+}
+
+.section-header {
+  margin-bottom: var(--margin-large);
 }
 
 .projects-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: var(--margin-large);
 }
 
 .projects-header .category-info {
@@ -455,11 +478,11 @@ blockquote::before {
   transition: bottom 0.3s ease-out, left 0.3s ease-out;
 }
 
- .project-card:hover .project-image {
+.project-card:hover .project-image {
   position: absolute;
   bottom: 0;
   left: 0;
-} 
+}
 
 .project-card .title {
   font-size: var(--font-size-l);
@@ -479,13 +502,13 @@ blockquote::before {
   height: 100%;
 }
 
-nav > a {
+nav>a {
   text-decoration: none;
   border: none;
   cursor: var(--cursor-link);
 }
 
-nav > a:hover {
+nav>a:hover {
   border: none;
 }
 
@@ -525,10 +548,10 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 45px;
-  max-width: 750px;
-  min-width: 280px;
-  margin: 1rem auto 0;
-  border: var(--border-width) solid var(--border-color);
+  width: 100%;
+  margin: 1rem 0 0;
+  border-top: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
   background-color: var(--bg);
   position: sticky;
   top: -1px;
@@ -569,7 +592,8 @@ footer a:hover {
 #crowd-canvas {
   margin-top: var(--footer-negative-margin);
   position: relative;
-  width: 100%;
+  width: 100svw;
+  margin-left: calc(50% - 50vw);
   margin-bottom: -10px;
   pointer-events: none;
   z-index: -1;
@@ -603,14 +627,9 @@ hr {
   padding: var(--padding-xs) var(--padding-small);
 }
 
-.section-about {
-  margin: 0 -1rem;
-  padding: 0 1rem;
-}
-
 .section-about .side-tag {
   position: absolute;
-  left: -2.2rem;
+  left: -3.4rem;
   top: -6rem;
   font-size: var(--font-size-xxs);
   color: var(--highlight);
@@ -620,11 +639,12 @@ hr {
 }
 
 
-.section-os, .section-writings{
+.section-os,
+.section-writings {
   border-top: var(--border-width) dashed var(--border-color);
   border-bottom: var(--border-width) dashed var(--border-color);
   background-color: var(--bg-subtle);
-  margin: 0 -1rem;
+  margin: 0 calc(var(--margin) * -1);
 }
 
 .os-card {
@@ -657,7 +677,7 @@ a.os-card.card:hover {
   background-color: color-mix(in srgb, var(--highlight) 10%, transparent);
   padding: var(--padding-xxs) var(--padding-small);
   border: var(--border-width) dotted var(--highlight);
-  width: fit-content; 
+  width: fit-content;
 }
 
 .description {
@@ -685,7 +705,7 @@ a.os-card.card:hover {
 .contact-parent .email {
   font-size: 2.5rem;
   word-break: break-word;
-  
+
 }
 
 .contact-parent .social {
@@ -693,7 +713,7 @@ a.os-card.card:hover {
   gap: var(--padding);
 }
 
-.contact-parent .social > p {
+.contact-parent .social>p {
   font-size: var(--font-size-s);
   background-color: var(--border-color);
   padding: var(--padding-xs) var(--padding);
@@ -730,27 +750,24 @@ a.os-card.card:hover {
 .section-divider-top-container {
   max-width: 750px;
   min-width: 280px;
-  margin:  0 auto;
-  border-left: var(--border-width) solid var(--border-color);
-  border-right: var(--border-width) solid var(--border-color);
+  margin: 0 auto;
 }
 
-.section-divider-top-container > .section-divider {
+.section-divider-top-container>.section-divider {
   margin: 0;
-  width: calc(100%);
 }
 
 .section-divider {
   --mask-image: linear-gradient(to top, transparent 0%, var(--bg) 150%);
 
-  width: calc(100% + 2rem);
-  margin: 0 -1rem;
+  width: calc(100%);
   height: 3rem;
   background-color: var(--bg-subtle);
   background-size: 0.6rem 0.6rem;
   background-image: repeating-linear-gradient(45deg, var(--border-color) 0, var(--border-color) var(--border-width), var(--bg) 0, var(--bg) 50%);
   -webkit-mask-image: var(--mask-image);
   mask-image: var(--mask-image);
+  margin: 0 calc(var(--margin) * -1);
 }
 
 #section-divider-footer {
@@ -771,43 +788,16 @@ a.os-card.card:hover {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .parent-container, header, #section-divider-footer {
-    max-width: 95vw !important;
-    min-width: 95vw !important;
-    margin: 0 auto !important;
-  }
-}
-
-@media only screen and (max-width: 600px) and (min-width: 800px) {
-  .parent-container, header, #section-divider-footer {
-    max-width: 95vw !important;
-    min-width: 95vw !important;
-    margin: 0 auto !important;
-  }
-}
 
 @media only screen and (max-width: 800px) {
   .scroll-buttons {
     display: none;
   }
 
-  header {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
   #side-tag {
     display: none;
   }
-  
-  /* .section-projects {
-    margin: 0 calc(-1* var(--margin));
-  }
 
-  .project-card:first-of-type {
-    margin-left: var(--margin);
-  } */
 }
 
 @keyframes slide-enter {
@@ -821,6 +811,7 @@ a.os-card.card:hover {
     opacity: 100
   }
 }
+
 
 @media (prefers-reduced-motion:no-preference) {
 
