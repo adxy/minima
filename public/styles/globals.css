@@ -562,6 +562,8 @@ header {
 
 header.is-stuck {
   box-shadow: 1px 18px 30px -5px var(--bg);
+  background-color: color-mix(in srgb, var(--bg-subtle) 55%, transparent) !important;
+  backdrop-filter: blur(8px) !important;
 }
 
 footer {
