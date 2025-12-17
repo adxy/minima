@@ -79,70 +79,62 @@
         <a id="logo-box" href="/" title="Goto Home" aria-label="adxy-logo">
           <img class="svg-icon" src="/images/adxy-logo.svg" alt="adxy logo" />
         </a>
-        <nav class="nav-bar">
+        <nav>
           <a
-            class="nav-icon-bg home"
+            class="nav-icon home"
             href="/"
             data-tooltip="Home"
             data-tooltip-location="bottom"
           >
-            <img
-              class="nav-icon svg-icon"
-              src="/images/home.svg"
-              alt="home icon"
-            />
+            <img class="svg-icon" src="/images/home.svg" alt="home icon" />
           </a>
           <a
-            class="nav-icon-bg contact"
+            class="nav-icon contact"
             href="/contact"
             data-tooltip="Contact"
             data-tooltip-location="bottom"
           >
             <img
-              class="nav-icon svg-icon"
+              class="svg-icon"
               src="/images/contact.svg"
               alt="twitter icon"
             />
           </a>
           <a
-            class="nav-icon-bg github"
+            class="nav-icon github"
             href="https://github.com/adxy"
             target="_blank"
             data-tooltip="Github"
             data-tooltip-location="bottom"
           >
-            <img
-              class="nav-icon svg-icon"
-              src="/images/github.svg"
-              alt="github icon"
-            />
+            <img class="svg-icon" src="/images/github.svg" alt="github icon" />
           </a>
           <a
-            class="nav-icon-bg"
+            class="nav-icon"
             href="/writings"
             data-tooltip="Writings"
             data-tooltip-location="bottom"
           >
             <img
-              class="nav-icon svg-icon"
+              class="svg-icon"
               src="/images/writings.svg"
               alt="challenges icon"
             />
           </a>
           <a
-            class="nav-icon-bg theme"
+            class="nav-icon theme"
             id="theme-button"
             data-tooltip="Toggle Theme"
             data-tooltip-location="bottom"
           >
             <img
-              class="theme-button nav-icon svg-icon"
+              class="theme-button svg-icon"
               id="moon-button"
               src="/images/moon.svg"
               alt="moon-button"
             />
             <img
-              class="theme-button nav-icon svg-icon"
+              class="theme-button svg-icon"
               id="sun-button"
               src="/images/sun.svg"
               alt="sun-button"
@@ -156,9 +148,7 @@
       </div>
 
       <main class="main-container">
-        <div class="slide-enter-content main-container-content">
-          {{.Content}}
-        </div>
+        <div class="slide-enter-content">{{.Content}}</div>
       </main>
 
       <div class="section-divider" id="section-divider-footer"></div>
