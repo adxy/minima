@@ -17,8 +17,6 @@
     --copied: #027769;
     --footer-bg: #cecdcd;
     --moon-display: none;
-    --cursor-default: url("/images/cursors/light-mode/default.svg"), auto;
-    --cursor-link: url("/images/cursors/light-mode/link.svg") 10 10, pointer;
     --cursor-external-link: url("/images/cursors/light-mode/external-link.svg")
         10 10,
       pointer;
@@ -45,8 +43,6 @@
     --footer-bg: #1e1c1c;
     --moon-display: block;
     --sun-display: none;
-    --cursor-default: url("/images/cursors/dark-mode/default.svg") 5 5, auto;
-    --cursor-link: url("/images/cursors/dark-mode/link.svg") 10 10, pointer;
     --cursor-external-link: url("/images/cursors/dark-mode/external-link.svg")
         10 10,
       pointer;
@@ -93,12 +89,10 @@ html {
   letter-spacing: 0.04rem;
   max-width: 100%;
   height: auto;
-  cursor: var(--cursor-default);
 }
 
 body {
   height: auto;
-  cursor: var(--cursor-default);
   max-width: min(100svw, var(--body-width-max));
   padding: 0 1rem;
   margin: 0 auto;
@@ -109,7 +103,6 @@ a {
   border-bottom: 1px solid var(--border-color);
   transition: border 0.3s ease-out;
   color: var(--text) !important;
-  cursor: var(--cursor-link);
 
   &[target="_blank"] {
     cursor: var(--cursor-external-link);
@@ -189,7 +182,7 @@ aside.aside-container {
   font-weight: 400;
   font-style: normal;
   border: none;
-  cursor: var(--cursor-link);
+  cursor: none;
 
   &:hover {
     background-clip: text;
@@ -199,23 +192,6 @@ aside.aside-container {
     -webkit-text-fill-color: transparent;
     animation: designTextAnimation 4s linear infinite;
     border: none;
-  }
-}
-
-#micro-interactions {
-  display: inline-block;
-  transition: transform 0.3s ease, font-size 0.3s ease;
-  cursor: var(--cursor-link);
-
-  span {
-    display: inline-block;
-    transition: transform 0.3s ease-out, font-weight 0.3s ease-out;
-  }
-
-  &:hover span {
-    transform: scale(0.8);
-    font-weight: 600;
-    transition: transform 0.3s ease-out, font-weight 0.3s ease-out;
   }
 }
 
@@ -524,7 +500,7 @@ nav {
 .nav-icon {
   text-decoration: none;
   border: none;
-  cursor: var(--cursor-link);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
