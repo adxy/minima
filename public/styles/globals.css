@@ -732,19 +732,21 @@ a.os-card.card:hover {
 
 .section-divider-top-container {
   max-width: 750px;
+
   min-width: 280px;
   margin: 0 auto;
   background-color: var(--bg);
 
   > .section-divider {
     margin: 0;
+    width: 100%;
   }
 }
 
 .section-divider {
   --mask-image: linear-gradient(to top, transparent 0%, var(--bg) 150%);
 
-  width: calc(100%);
+  width: calc(100% + var(--margin) * 2);
   height: 3rem;
   background-color: var(--bg-subtle);
   background-size: 0.6rem 0.6rem;
@@ -761,8 +763,7 @@ a.os-card.card:hover {
 }
 
 #section-divider-footer {
-  max-width: 750px;
-  min-width: 280px;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: var(--margin);
 }
